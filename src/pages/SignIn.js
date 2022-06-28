@@ -127,9 +127,9 @@ export default class SignIn extends Component {
       <>
         <Layout className="layout-default layout-signin">
           <Header>
-            <div className="header-col header-brand">
+            {/* <div className="header-col header-brand">
               <h5>Muse Dashboard</h5>
-            </div>
+            </div> */}
             <div className="header-col header-nav">
               <Menu mode="horizontal" defaultSelectedKeys={["1"]}>
                 <Menu.Item key="1">
@@ -158,9 +158,9 @@ export default class SignIn extends Component {
                 </Menu.Item>
               </Menu>
             </div>
-            <div className="header-col header-btn">
+            {/* <div className="header-col header-btn">
               <Button type="primary">FREE DOWNLOAD</Button>
-            </div>
+            </div> */}
           </Header>
           <Content className="signin">
             <Row gutter={[24, 0]} justify="space-around">

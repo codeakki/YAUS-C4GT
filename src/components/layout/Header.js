@@ -270,9 +270,9 @@ function Header({
 
   return (
     <>
-      <div className="setting-drwer" onClick={showDrawer}>
+      {/* <div className="setting-drwer" onClick={showDrawer}>
         {setting}
-      </div>
+      </div> */}
       <Row gutter={[24, 0]}>
         <Col span={24} md={6}>
           <Breadcrumb>
@@ -304,9 +304,9 @@ function Header({
               </a>
             </Dropdown>
           </Badge>
-          <Button type="link" onClick={showDrawer}>
+          {/* <Button type="link" onClick={showDrawer}>
             {logsetting}
-          </Button>
+          </Button> */}
           <Button
             type="link"
             className="sidebar-toggler"
@@ -314,15 +314,15 @@ function Header({
           >
             {toggler}
           </Button>
-          <Drawer
+          {/* <Drawer
             className="settings-drawer"
             mask={true}
             width={360}
             onClose={hideDrawer}
             placement={placement}
             visible={visible}
-          >
-            <div layout="vertical">
+          > */}
+            {/* <div layout="vertical">
               <div className="header-top">
                 <Title level={4}>
                   Configurator
@@ -419,8 +419,8 @@ function Header({
                   </ButtonContainer>
                 </div>
               </div>
-            </div>
-          </Drawer>
+            </div> */}
+          {/* </Drawer> */}
           <Link to="/sign-in" className="btn-sign-in">
             {profile}
             <span>Sign in</span>

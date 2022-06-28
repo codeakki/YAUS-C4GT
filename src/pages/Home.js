@@ -488,19 +488,19 @@ function Home() {
           </Col>
         </Row>
 
-        <Row gutter={[24, 0]}>
+        {/* <Row gutter={[24, 0]}>
           <Col xs={24} md={12} sm={24} lg={12} xl={14} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
-              <Row gutter>
-                <Col
+              <Row gutter> */}
+                {/* <Col
                   xs={24}
                   md={12}
                   sm={24}
                   lg={12}
                   xl={14}
                   className="mobile-24"
-                >
-                  <div className="h-full col-content p-20">
+                > */}
+                  {/* <div className="h-full col-content p-20">
                     <div className="ant-muse">
                       <Text>Built by developers</Text>
                       <Title level={5}>Muse Dashboard for Ant Design</Title>
@@ -515,9 +515,9 @@ function Home() {
                         {<RightOutlined />}
                       </a>
                     </div>
-                  </div>
-                </Col>
-                <Col
+                  </div> */}
+                {/* </Col> */}
+                {/* <Col
                   xs={24}
                   md={12}
                   sm={24}
@@ -528,8 +528,8 @@ function Home() {
                   <div className="ant-cret text-right">
                     <img src={card} alt="" className="border10" />
                   </div>
-                </Col>
-              </Row>
+                </Col> */}
+              {/* </Row>
             </Card>
           </Col>
 
@@ -552,7 +552,7 @@ function Home() {
               </div>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     </>
   );
