@@ -1,7 +1,5 @@
-import {Button,message,Steps} from "antd";
-import { useState} from "react";
-
-
+import { Button, message, Steps,Card } from 'antd';
+import { useState } from 'react';
 const { Step } = Steps;
 const steps = [
   {
@@ -30,7 +28,7 @@ const FormWizard = () => {
   };
 
   return (
-    <>
+    <Card>
       <Steps current={current}>
         {steps.map((item) => (
           <Step key={item.title} title={item.title} />
@@ -59,11 +57,8 @@ const FormWizard = () => {
           </Button>
         )}
       </div>
-    </>
+    </Card>
   );
 };
 
 export default FormWizard;
-
-
-/* ReactDOM.render(<ComponentDemo />, mountNode); */
