@@ -1779,16 +1779,23 @@ body {
 .header-col.header-nav {
   margin-left: auto;
   width: 100%;
+  color: black;
+  font-weight: bold;
   margin-right: auto;
 }
 .header-col.header-nav .ant-menu-overflow {
   justify-content: center;
+  color: black;
+  font-weight: bold;
+  
 }
 
 .header-col.header-nav .ant-menu-horizontal {
   background: transparent;
   box-shadow: none;
   border: 0px;
+  font-weight: bold;
+  color: black;
 }
 
 .layout-default.ant-layout.layout-sign-up {
@@ -1796,6 +1803,8 @@ body {
 }
 .header-col.header-nav li:after {
   display: none;
+  color: black;
+  font-weight: bold;
 }
 .sign-up-header {
   height: 550px;
@@ -1805,8 +1814,11 @@ body {
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
   background-size: cover;
   background-position: 50%;
+  color: black;
+  font-weight: bold;
+  
   text-align: center;
-  background: url("../images/bg-signup.jpg") no-repeat center top;
+  /* background: url("../images/bg-signup.jpg") no-repeat center top; */
 }
 .header-col.header-brand {
   white-space: nowrap;
@@ -1820,12 +1832,13 @@ body {
 }
 
 .header-col.header-nav {
-  color: #fff;
+  color: black;
   font-weight: 600;
 }
 
 .header-col.header-nav ul li {
-  color: #fff !important;
+  color:black;
+
 }
 
 .header-col.header-nav ul li img {
@@ -1839,16 +1852,21 @@ body {
   line-height: 33px;
 }
 .sign-up-header .content {
-  padding-top: 40px;
+  padding-top: 10px;
   max-width: 480px;
   margin: auto;
+  
+
 }
 .sign-up-header * {
-  color: #fff;
+  
+  background-color: white;
 }
 .sign-up-header .content h1 {
   font-size: 48px;
-  color: #fff;
+  color: #1890ff;
+  font-weight: bold;
+  margin-top: -16%;
 }
 .text-lg {
   font-size: 16px;
@@ -1865,9 +1883,9 @@ body {
   width: 100%;
   max-width: 500px;
   margin: auto;
-  box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
+  box-shadow: 7px 7px 20px 27px rgb(0 0 0 / 5%);
   border-radius: 12px;
-  margin-top: -190px;
+  margin-top: -390px;
   margin-bottom: 20px;
 }
 .card-signup h5 {
@@ -2030,24 +2048,28 @@ body {
   line-height: 64px;
 }
 .fill-muted {
-  fill: #8c8c8c;
+  fill: black;
 }
 .layout-default .ant-layout-header .header-brand h5 {
   white-space: nowrap;
-
   color: #141414;
   margin: 0;
 }
 .layout-default .ant-layout-header .header-nav a svg {
   margin-right: 5px;
+  color: black;
+  font-weight: bold;
 }
 .layout-default .ant-layout-header .header-nav a span,
 .layout-default .ant-layout-header .header-nav a svg {
+  color: black;
+  font-weight: bold;
   vertical-align: middle;
 }
 .layout-default .ant-layout-header .header-nav a {
   color: #141414;
   padding: 6px 12px;
+  font-weight: bold;
   font-weight: 400;
 }
 
@@ -2091,7 +2113,7 @@ body {
   .header-nav
   .ant-menu-horizontal
   > .ant-menu-submenu:hover {
-  color: #8c8c8c;
+  /* color: #8c8c8c; */
   font-weight: 600;
   border: none;
 }
@@ -2107,6 +2129,7 @@ body {
 }
 .layout-default .ant-layout-content {
   padding-top: 40px;
+  background-color: white;
 }
 .font-regular {
   font-weight: 400;
@@ -2131,6 +2154,7 @@ body {
   .ant-col.ant-form-item-label
   .ant-form-item-required:before {
   display: none;
+  
 }
 
 .ant-row.ant-form-item.username .ant-col.ant-form-item-label {
@@ -2171,18 +2195,18 @@ body {
   margin-right: 0px;
 }
 .layout-default.ant-layout.layout-sign-up .header-col.header-brand h5 {
-  color: #fff;
+  color: white;
 }
 
 .layout-default.ant-layout.layout-sign-up .header-col.header-nav a {
-  color: #fff;
+  color: white;
 }
 
 .layout-default.ant-layout.layout-sign-up
   .header-col.header-nav
   svg
   path.fill-muted {
-  fill: #fff;
+  fill: black;
 }
 /* sign in end */
 
@@ -2233,6 +2257,7 @@ button.ant-btn.bell strong {
 .layout-dashboard .ant-layout-content {
   padding: 0;
   margin: 0 20px 0;
+  background-color: white;
 }
 .m-10,
 .mr-10,
@@ -2264,6 +2289,7 @@ small.redtext {
 
 section.ant-layout.layout-content .ant-layout-content.content-ant {
   padding: 0px !important;
+  background-color: white;
 }
 
 .layout-dashboard .ant-card {
@@ -2324,6 +2350,7 @@ section.ant-layout.layout-content .ant-layout-content.content-ant {
 }
 .layout-default .ant-layout-content.p-0 {
   padding: 0px;
+  background-color: white;
 }
 .pt {
   padding-top: 0px;
