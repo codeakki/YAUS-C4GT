@@ -1,14 +1,23 @@
-import { Button, message, Steps,Card } from 'antd';
+import { Button, message, Steps, Card } from 'antd';
 import { useState } from 'react';
+import First from "./First";
 const { Step } = Steps;
 const steps = [
   {
     title: 'First',
-    content: 'First-content',
+    content: <First/>,
   },
   {
     title: 'Second',
     content: 'Second-content',
+  },
+  {
+    title: 'Third',
+    content: 'Third-content',
+  },
+  {
+    title: 'Fourth',
+    content: 'Fourth-content',
   },
   {
     title: 'Last',
@@ -16,7 +25,7 @@ const steps = [
   },
 ];
 
-const FormWizard = () => {
+function  FormWizard (){
   const [current, setCurrent] = useState(0);
 
   const next = () => {
@@ -28,36 +37,41 @@ const FormWizard = () => {
   };
 
   return (
-    <Card>
-      <Steps current={current}>
-        {steps.map((item) => (
-          <Step key={item.title} title={item.title} />
-        ))}
-      </Steps>
-      <div className="steps-content">{steps[current].content}</div>
-      <div className="steps-action">
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button type="primary" onClick={() => message.success('Processing complete!')}>
-            Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button
-            style={{
-              margin: '0 8px',
-            }}
-            onClick={() => prev()}
-          >
-            Previous
-          </Button>
-        )}
-      </div>
-    </Card>
+    <>
+    <div className="layout-content"   style={{
+                margin: '35px',
+              }}>
+        <Steps current={current} >
+          {steps.map((item) => (
+            <Step key={item.title} title={item.title} />
+          ))}
+        </Steps>
+        <div className="steps-content">{steps[current].content}</div>
+
+        <div className="steps-action">
+          {current < steps.length - 1 && (
+            <Button type="primary" onClick={() => next()}>
+              Next
+            </Button>
+          )}
+          {current === steps.length - 1 && (
+            <Button type="primary" onClick={() => message.success('Processing complete!')}>
+              Done
+            </Button>
+          )}
+          {current > 0 && (
+            <Button
+              style={{
+                margin: '0 8px',
+              }}
+              onClick={() => prev()}
+            >
+              Previous
+            </Button>
+          )}
+        </div>
+    </div>
+    </>
   );
 };
 
