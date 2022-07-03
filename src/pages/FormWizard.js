@@ -1,6 +1,7 @@
 import { Button, message, Steps, Card } from 'antd';
 import { useState } from 'react';
 import First from "./First";
+import Second from "./Second";
 const { Step } = Steps;
 const steps = [
   {
@@ -9,7 +10,7 @@ const steps = [
   },
   {
     title: 'Second',
-    content: 'Second-content',
+    content: <Second/>,
   },
   {
     title: 'Third',

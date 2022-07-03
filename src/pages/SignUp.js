@@ -116,8 +116,7 @@ const signin = [
     />
   </svg>,
 ];
-export default class SignUp extends Component {
-  render() {
+function SignUp() {
     const onFinish = (values) => {
       console.log("Success:", values);
     };
@@ -296,4 +295,5 @@ export default class SignUp extends Component {
       </>
     );
   }
-}
+
+  export default SignUp;
