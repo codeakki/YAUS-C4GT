@@ -114,15 +114,18 @@ const signin = [
     />
   </svg>,
 ];
-export default class SignIn extends Component {
-  render() {
-    const onFinish = (values) => {
-      console.log("Success:", values);
-    };
 
-    const onFinishFailed = (errorInfo) => {
-      console.log("Failed:", errorInfo);
-    };
+ 
+ 
+function SignIn() {
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
+
     return (
       <>
         <Layout className="layout-default layout-signin">
@@ -288,4 +291,4 @@ export default class SignIn extends Component {
       </>
     );
   }
-}
+  export default SignIn;

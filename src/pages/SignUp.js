@@ -9,7 +9,9 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
+
+
 import {
   Layout,
   Menu,
@@ -116,8 +118,42 @@ const signin = [
     />
   </svg>,
 ];
-export default class SignUp extends Component {
-  render() {
+function SignUp() {
+
+  const[name,setName]=useState("")
+  const[email,setEmail]=useState("")
+  const[password,setPassword]=useState("")
+
+  async function action(){
+    let item={
+      "registration": {
+          "applicationId": "650c50b5-eae9-442e-88de-fc36be10a21b"
+          },
+      "user": {
+          "name": "",
+          "email": "",
+          "password": ""
+          
+      }
+  }
+    
+    let result = await fetch("http://143.110.183.73:9011/api/user/registration",{
+      method:'POST',
+      credentials: 'omit',
+      headers:{
+        'Authorization':'_Qd8pWtFySgctTxzuNs6seq5WxIdaQhpiOm-MR2y6G5bLqNBl7Bpb-sk',
+        
+        },
+
+      body:JSON.stringify(item)
+    })
+    result=await result.json();
+    console.log("Result")
+
+
+  }
+
+
     const onFinish = (values) => {
       console.log("Success:", values);
     };
@@ -206,7 +242,7 @@ export default class SignUp extends Component {
                     { required: true, message: "Please input your username!" },
                   ]}
                 >
-                  <Input placeholder="Name" />
+                  <Input  value={name} onChange={(e)=>setName(e.target.value)} placeholder="Username" />
                 </Form.Item>
                 <Form.Item
                   name="email"
@@ -214,7 +250,7 @@ export default class SignUp extends Component {
                     { required: true, message: "Please input your email!" },
                   ]}
                 >
-                  <Input placeholder="email" />
+                  <Input value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email" />
                 </Form.Item>
                 <Form.Item
                   name="password"
@@ -222,7 +258,7 @@ export default class SignUp extends Component {
                     { required: true, message: "Please input your password!" },
                   ]}
                 >
-                  <Input placeholder="Password" />
+                  <Input value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
                 </Form.Item>
 
                 <Form.Item name="remember" valuePropName="checked">
@@ -239,6 +275,7 @@ export default class SignUp extends Component {
                     style={{ width: "100%" }}
                     type="primary"
                     htmlType="submit"
+                    onClick={action}
                   >
                     SIGN UP
                   </Button>
@@ -296,4 +333,5 @@ export default class SignUp extends Component {
       </>
     );
   }
-}
+
+  export default SignUp;
