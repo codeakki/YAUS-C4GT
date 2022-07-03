@@ -33,27 +33,29 @@ function First() {
     return (
 
         <Form
-        /* type="felx" */
-        justify="center"
-        align="middle"
-        margin="auto"
+            /* type="felx" */
+            justify="center"
+            align="middle"
+            margin="auto"
 
-        style={{minHeight:'20vh'}}
-        {...formItemLayout}
-        layout={formLayout}
-        form={form}
-        onFinish={onFinish}
-        initialValues={{
-          layout: formLayout,
-        }}
+            style={{ minHeight: '20vh' }}
+            {...formItemLayout}
+            layout={formLayout}
+            form={form}
+            onFinish={onFinish}
+            initialValues={{
+                layout: formLayout,
+            }}
 
             labelCol={{
-              span: 8,
+                span: 8,
             }}
             wrapperCol={{
                 span: 2,
             }}
         >
+            <h3  style={{ marginRight: '85%' }}>Name Your Link </h3>
+               <h5 style={{ marginRight: '240px' }}>Let's start by naming your link and creating an alias. Make the link title easy to remember for you , as it will be displayed in the Quick Links table.</h5> 
             <Form.Item label="Link Title" required tooltip="This is a required field" value="vertical">
                 <Space>
                     <Form.Item
@@ -142,7 +144,7 @@ function First() {
                     </Form.Item>
                 </Space>
             </Form.Item>
-              <Form.Item label=" " colon={false}>
+            <Form.Item label=" " colon={false}>
                 {/* <Button type="primary" htmlType="submit">
                     Submit
                 </Button> */}
