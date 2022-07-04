@@ -31,3 +31,17 @@
 
 
 ![Screenshot (27)](https://user-images.githubusercontent.com/84350895/176606010-92b1d7d6-cec1-4f91-b045-897c6ccba3be.png) <br>
+
+## 30th June, 2022
+
+✅ Read the Fusion Auth documentation.<br>
+✅ Set Up the enviroment of Fusion Auth in my local system.<br>
+
+## 1st July, 2022
+
+✅ Linking the Fusion Auth with the React App.<br>
+✅ Successfully registered one user in the app through fusion auth interface.<br>
+
+
+![Screenshot (29)](https://user-images.githubusercontent.com/84350895/176844866-e4992a1f-a15a-4cd7-9306-c3e0315de8e0.png)
+
