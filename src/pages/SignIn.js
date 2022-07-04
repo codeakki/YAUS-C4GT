@@ -9,7 +9,7 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Layout,
@@ -118,6 +118,10 @@ const signin = [
  
  
 function SignIn() {
+
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -126,6 +130,31 @@ function SignIn() {
     console.log("Failed:", errorInfo);
   };
 
+   async function login(){
+    let item={
+      
+        "loginId": email,
+        "password": password,
+        "applicationId": "650c50b5-eae9-442e-88de-fc36be10a21b"
+}
+  
+    
+    let result = await fetch("https://fa.chakshu-rd.samagra.io/api/login",{
+      method:'POST',
+      credentials: 'omit',
+      headers:{
+        'Authorization':'_Qd8pWtFySgctTxzuNs6seq5WxIdaQhpiOm-MR2y6G5bLqNBl7Bpb-sk',
+        'Content-Type':'application/json'
+        
+        },
+
+      body:JSON.stringify(item)
+    })
+    result=await result.json();
+    console.log("Result")
+
+
+   }
     return (
       <>
         <Layout className="layout-default layout-signin">
@@ -193,7 +222,7 @@ function SignIn() {
                       },
                     ]}
                   >
-                    <Input placeholder="Email" />
+                    <Input onChange={(e)=>setEmail(e.target.value)} placeholder="Email" />
                   </Form.Item>
 
                   <Form.Item
@@ -207,7 +236,7 @@ function SignIn() {
                       },
                     ]}
                   >
-                    <Input placeholder="Password" />
+                    <Input type="password" onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
                   </Form.Item>
 
                   <Form.Item
@@ -224,6 +253,7 @@ function SignIn() {
                       type="primary"
                       htmlType="submit"
                       style={{ width: "100%" }}
+                      onClick={login}
                     >
                       SIGN IN
                     </Button>

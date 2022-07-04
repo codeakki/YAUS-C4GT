@@ -130,18 +130,19 @@ function SignUp() {
           "applicationId": "650c50b5-eae9-442e-88de-fc36be10a21b"
           },
       "user": {
-          "name": "",
-          "email": "",
-          "password": ""
+          "name": name,
+          "email": email,
+          "password": password,
           
       }
   }
     
-    let result = await fetch("http://143.110.183.73:9011/api/user/registration",{
+    let result = await fetch("https://fa.chakshu-rd.samagra.io/api/user/registration",{
       method:'POST',
       credentials: 'omit',
       headers:{
         'Authorization':'_Qd8pWtFySgctTxzuNs6seq5WxIdaQhpiOm-MR2y6G5bLqNBl7Bpb-sk',
+        'Content-Type':'application/json'
         
         },
 
@@ -271,7 +272,8 @@ function SignUp() {
                 </Form.Item>
 
                 <Form.Item>
-                  <Button
+                <Link to="/dashboard">
+                <Button
                     style={{ width: "100%" }}
                     type="primary"
                     htmlType="submit"
@@ -279,6 +281,8 @@ function SignUp() {
                   >
                     SIGN UP
                   </Button>
+                  </Link>
+                  
                 </Form.Item>
               </Form>
               <p className="font-semibold text-muted text-center">
