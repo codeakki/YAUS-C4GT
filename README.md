@@ -36,11 +36,13 @@
 
 ✅ Read the Fusion Auth documentation.<br>
 ✅ Set Up the enviroment of Fusion Auth in my local system.<br>
+✅ Link Creation UI Created for first Step .<br>
 
 ## 1st July, 2022
 
 ✅ Linking the Fusion Auth with the React App.<br>
 ✅ Successfully registered one user in the app through fusion auth interface.<br>
+✅ Link Creation UI Created for Second Step and Third Step.<br>
 
 
 ![Screenshot (29)](https://user-images.githubusercontent.com/84350895/176844866-e4992a1f-a15a-4cd7-9306-c3e0315de8e0.png)
