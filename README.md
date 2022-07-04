@@ -45,3 +45,10 @@
 
 ![Screenshot (29)](https://user-images.githubusercontent.com/84350895/176844866-e4992a1f-a15a-4cd7-9306-c3e0315de8e0.png)
 
+## 4th July, 2022
+
+✅ Registration and Login API working fine<br>
+✅ Sign Up and Sign In pages working almost fine.<br>
+
+
+
