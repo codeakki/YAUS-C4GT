@@ -9,9 +9,8 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
 import {
   Layout,
   Menu,
@@ -123,14 +122,6 @@ function SignIn() {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
 
-  const history=useHistory();
-
-  useEffect(()=>{
-    if(localStorage.getItem('user-info')){
-      history.push('/dashboard')
-    }
-  },[])
-
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -160,8 +151,6 @@ function SignIn() {
       body:JSON.stringify(item)
     })
     result=await result.json();
-    localStorage.setItem('user-info',JSON.stringify(result))
-    history.push('/dashboard')
     console.log("Result")
 
 

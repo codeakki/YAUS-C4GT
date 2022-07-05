@@ -23,7 +23,6 @@ import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
-import Protect from "./Protect"
 
 function App() {
   return (
@@ -35,10 +34,10 @@ function App() {
         <Main>
           <Route exact path="/LinkCreate" component={FormWizard} />
           <Route exact path="/dashboard" component={Home} />
-          <Route exact path="/tables" ><Protect Cmp={Tables}/></Route>
-          <Route exact path="/billing"><Protect Cmp={Billing}/></Route>
+          <Route exact path="/tables" component={Tables} />
+          <Route exact path="/billing" component={Billing} />
           {/* <Route exact path="/rtl" component={Rtl} /> */}
-          <Route exact path="/profile"><Protect Cmp={Profile}/></Route>
+          <Route exact path="/profile" component={Profile} />
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
