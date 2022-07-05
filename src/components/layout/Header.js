@@ -10,9 +10,10 @@
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+
 import { useState, useEffect } from "react";
 import { DownOutlined } from "@ant-design/icons";
-import { Menu, Space } from "antd";
+import { Menu, Space, } from "antd";
 
 import {
   Row,
@@ -61,7 +62,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-var local_info=JSON.parse(localStorage.getItem("user-info"))
+var local_info = JSON.parse(localStorage.getItem("user-info"))
 
 const bell = [
   <svg
@@ -298,15 +299,16 @@ function Header({
 
           {/* Log out functionality */}
 
-          <Dropdown overlay={menu} trigger={["click"]}>
+          {/*   <Dropdown overlay={menu} trigger={["click"]} style={{ float: 'right' }}
+        className="dropdown-btn">
             <a onClick={(e) => e.preventDefault()}>
               <Space>
                 {local_info.user.email}
                 <DownOutlined />
               </Space>
             </a>
-          </Dropdown>
-          
+          </Dropdown> */}
+
           {/* </Badge> */}
           {/* <Button type="link" onClick={showDrawer}>
             {logsetting}
@@ -427,7 +429,10 @@ function Header({
           {/* </Drawer> */}
 
           {localStorage.getItem("user-info") ? (
-            <></>
+            <> <Link to="/sign-in" className="btn-sign-in">
+              {profile}
+              <span>Sign Out</span>
+            </Link></>
           ) : (
             <>
               <Link to="/sign-in" className="btn-sign-in">
