@@ -11,8 +11,6 @@
 */
 
 import { useState, useEffect } from "react";
-import { DownOutlined } from "@ant-design/icons";
-import { Menu, Space } from "antd";
 
 import {
   Row,
@@ -60,8 +58,6 @@ const ButtonContainer = styled.div`
     background-color: #1890ff;
   }
 `;
-
-var local_info=JSON.parse(localStorage.getItem("user-info"))
 
 const bell = [
   <svg
@@ -149,25 +145,43 @@ const clockicon = [
   </svg>,
 ];
 
-// const data = [
-//   {
-//     title: "New message from Sophie",
-//     description: <>{clockicon} 2 days ago</>,
+const data = [
+  {
+    title: "New message from Sophie",
+    description: <>{clockicon} 2 days ago</>,
 
-//     avatar: avtar,
-//   },
-//   {
-//     title: "New album by Travis Scott",
-//     description: <>{clockicon} 2 days ago</>,
+    avatar: avtar,
+  },
+  {
+    title: "New album by Travis Scott",
+    description: <>{clockicon} 2 days ago</>,
 
-//     avatar: <Avatar shape="square">{wifi}</Avatar>,
-//   },
-//   {
-//     title: "Payment completed",
-//     description: <>{clockicon} 2 days ago</>,
-//     avatar: <Avatar shape="square">{credit}</Avatar>,
-//   },
-// ];
+    avatar: <Avatar shape="square">{wifi}</Avatar>,
+  },
+  {
+    title: "Payment completed",
+    description: <>{clockicon} 2 days ago</>,
+    avatar: <Avatar shape="square">{credit}</Avatar>,
+  },
+];
+
+const menu = (
+  <List
+    min-width="100%"
+    className="header-notifications-dropdown "
+    itemLayout="horizontal"
+    dataSource={data}
+    renderItem={(item) => (
+      <List.Item>
+        <List.Item.Meta
+          avatar={<Avatar shape="square" src={item.avatar} />}
+          title={item.title}
+          description={item.description}
+        />
+      </List.Item>
+    )}
+  />
+);
 
 const logsetting = [
   <svg
@@ -246,21 +260,6 @@ function Header({
 }) {
   const { Title, Text } = Typography;
 
-  const menu = (
-    <Menu
-      items={[
-        {
-          label: "Log Out",
-          key: "0",
-        },
-        {
-          label: "Profile",
-          key: "1",
-        },
-      ]}
-    />
-  );
-
   const [visible, setVisible] = useState(false);
   const [sidenavType, setSidenavType] = useState("transparent");
 
@@ -294,20 +293,17 @@ function Header({
           </div>
         </Col>
         <Col span={24} md={18} className="header-control">
-          {/* <Badge size="small" count={4}> */}
-
-          {/* Log out functionality */}
-
-          <Dropdown overlay={menu} trigger={["click"]}>
-            <a onClick={(e) => e.preventDefault()}>
-              <Space>
-                {local_info.user.email}
-                <DownOutlined />
-              </Space>
-            </a>
-          </Dropdown>
-          
-          {/* </Badge> */}
+          <Badge size="small" count={4}>
+            <Dropdown overlay={menu} trigger={["click"]}>
+              <a
+                href="#pablo"
+                className="ant-dropdown-link"
+                onClick={(e) => e.preventDefault()}
+              >
+                {bell}
+              </a>
+            </Dropdown>
+          </Badge>
           {/* <Button type="link" onClick={showDrawer}>
             {logsetting}
           </Button> */}
@@ -326,7 +322,7 @@ function Header({
             placement={placement}
             visible={visible}
           > */}
-          {/* <div layout="vertical">
+            {/* <div layout="vertical">
               <div className="header-top">
                 <Title level={4}>
                   Configurator
@@ -425,25 +421,15 @@ function Header({
               </div>
             </div> */}
           {/* </Drawer> */}
-
-          {localStorage.getItem("user-info") ? (
-            <></>
-          ) : (
-            <>
-              <Link to="/sign-in" className="btn-sign-in">
-                {profile}
-                <span>Sign in</span>
-              </Link>
-            </>
-          )}
-
+          <Link to="/sign-in" className="btn-sign-in">
+            {profile}
+            <span>Sign in</span>
+          </Link>
           <Input
             className="header-search"
             placeholder="Type here..."
             prefix={<SearchOutlined />}
           />
-
-          {/* //logout functionality */}
         </Col>
       </Row>
     </>
