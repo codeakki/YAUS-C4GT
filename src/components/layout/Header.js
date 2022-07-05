@@ -10,7 +10,12 @@
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+
 import { useState, useEffect } from "react";
+
+import { DownOutlined } from "@ant-design/icons";
+import { Menu, Space, } from "antd";
+
 
 import {
   Row,
@@ -58,6 +63,10 @@ const ButtonContainer = styled.div`
     background-color: #1890ff;
   }
 `;
+
+
+var local_info = JSON.parse(localStorage.getItem("user-info"))
+
 
 const bell = [
   <svg
@@ -293,6 +302,23 @@ function Header({
           </div>
         </Col>
         <Col span={24} md={18} className="header-control">
+
+          {/* <Badge size="small" count={4}> */}
+
+          {/* Log out functionality */}
+
+          {/*   <Dropdown overlay={menu} trigger={["click"]} style={{ float: 'right' }}
+        className="dropdown-btn">
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>
+                {local_info.user.email}
+                <DownOutlined />
+              </Space>
+            </a>
+          </Dropdown> */}
+
+          {/* </Badge> */}
+
           <Badge size="small" count={4}>
             <Dropdown overlay={menu} trigger={["click"]}>
               <a
@@ -304,6 +330,7 @@ function Header({
               </a>
             </Dropdown>
           </Badge>
+
           {/* <Button type="link" onClick={showDrawer}>
             {logsetting}
           </Button> */}
@@ -421,10 +448,28 @@ function Header({
               </div>
             </div> */}
           {/* </Drawer> */}
+
+
+          {localStorage.getItem("user-info") ? (
+            <> <Link to="/sign-in" className="btn-sign-in">
+              {profile}
+              <span>Sign Out</span>
+            </Link></>
+          ) : (
+            <>
+              <Link to="/sign-in" className="btn-sign-in">
+                {profile}
+                <span>Sign in</span>
+              </Link>
+            </>
+          )}
+
+
           <Link to="/sign-in" className="btn-sign-in">
             {profile}
             <span>Sign in</span>
           </Link>
+
           <Input
             className="header-search"
             placeholder="Type here..."
