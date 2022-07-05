@@ -463,13 +463,6 @@ function Header({
               </Link>
             </>
           )}
-
-
-          <Link to="/sign-in" className="btn-sign-in">
-            {profile}
-            <span>Sign in</span>
-          </Link>
-
           <Input
             className="header-search"
             placeholder="Type here..."
