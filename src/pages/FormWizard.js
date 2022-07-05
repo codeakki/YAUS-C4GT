@@ -42,7 +42,7 @@ function  FormWizard (){
 
   return (
     <>
-    <div className="layout-content"   style={{
+     <div className="layout-content"   style={{
                 margin: '35px',
               }}>
         <Steps current={current} >
@@ -52,7 +52,17 @@ function  FormWizard (){
         </Steps>
         <div className="steps-content">{steps[current].content}</div>
 
-        <div className="steps-action">
+        <div className="steps-action" align="right" style={{marginRight:"50px"}}>
+        {current > 0 && (
+            <Button
+              style={{
+                margin: '0 8px',
+              }}
+              onClick={() => prev()}
+            >
+              Previous
+            </Button>
+          )}
           {current < steps.length - 1 && (
             <Button type="primary" onClick={() => next()}>
               Next
@@ -63,16 +73,7 @@ function  FormWizard (){
               Done
             </Button>
           )}
-          {current > 0 && (
-            <Button
-              style={{
-                margin: '0 8px',
-              }}
-              onClick={() => prev()}
-            >
-              Previous
-            </Button>
-          )}
+        
         </div>
     </div>
     </>
