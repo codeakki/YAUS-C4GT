@@ -10,10 +10,10 @@
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-
 import { useState, useEffect } from "react";
-import { DownOutlined } from "@ant-design/icons";
-import { Menu, Space, } from "antd";
+import { DownOutlined,LogoutOutlined } from "@ant-design/icons";
+import { Menu, Space } from "antd";
+import { useHistory } from "react-router-dom";
 
 import {
   Row,
@@ -62,7 +62,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-var local_info = JSON.parse(localStorage.getItem("user-info"))
+var local_info = JSON.parse(localStorage.getItem("user-info"));
 
 const bell = [
   <svg
@@ -247,6 +247,8 @@ function Header({
 }) {
   const { Title, Text } = Typography;
 
+  const local_info = JSON.parse(localStorage.getItem("user-info"));
+
   const menu = (
     <Menu
       items={[
@@ -264,11 +266,17 @@ function Header({
 
   const [visible, setVisible] = useState(false);
   const [sidenavType, setSidenavType] = useState("transparent");
+  const history = useHistory();
 
   useEffect(() => window.scrollTo(0, 0));
 
   const showDrawer = () => setVisible(true);
   const hideDrawer = () => setVisible(false);
+
+  function logout() {
+    localStorage.clear();
+    history.push("/signup");
+  }
 
   return (
     <>
@@ -429,10 +437,13 @@ function Header({
           {/* </Drawer> */}
 
           {localStorage.getItem("user-info") ? (
-            <> <Link to="/sign-up" className="btn-sign-in">
-              {profile}
-              <span>Sign Out</span>
-            </Link></>
+            <>
+              {" "}
+              <Link to="/sign-up" className="btn-sign-in">
+                
+                <span onClick={logout}><LogoutOutlined />Sign Out</span>
+              </Link>
+            </>
           ) : (
             <>
               <Link to="/sign-in" className="btn-sign-in">
@@ -442,11 +453,24 @@ function Header({
             </>
           )}
 
-          <Input
+          {localStorage.getItem("user-info") ? (
+            <>
+              <a onClick={(e) => e.preventDefault()}>
+                <Space>
+                {profile}{local_info.user.email} 
+                  
+                </Space>
+              </a>
+            </>
+          ) : (
+            <></>
+          )}
+
+          {/* <Input
             className="header-search"
             placeholder="Type here..."
             prefix={<SearchOutlined />}
-          />
+          /> */}
 
           {/* //logout functionality */}
         </Col>
