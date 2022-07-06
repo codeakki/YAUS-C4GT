@@ -43,6 +43,13 @@ body {
   margin: 0;
   padding: 33px 20px;
 }
+.dropdown-btn > .ant-dropdown-trigger  {
+  border: none;
+}
+
+.dropdown-btn > .ant-dropdown-trigger > span {
+  background-color: white !important;
+}
 .layout-dashboard .ant-layout-sider.sider-primary .brand img {
   height: 30px;
 }
@@ -437,7 +444,7 @@ body {
   background: #fff;
   box-shadow: 0 20px 27px rgb(0 0 0 / 5%);
   border-radius: 12px;
-  min-width: 276px;
+ /*  min-width: 276px; */
   padding: 16px 8px;
 }
 

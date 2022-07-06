@@ -9,8 +9,8 @@
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import React, { Component,useState } from "react";
-
+import React, { Component,useEffect,useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   Layout,
@@ -111,7 +111,7 @@ const signin = [
     width="14"
     height="14"
     viewBox="0 0 14 14"
-  >
+  > 
     <path
       className="fill-muted"
       d="M12.25,14H1.75A1.752,1.752,0,0,1,0,12.25V3.5A1.752,1.752,0,0,1,1.75,1.75h.876V.875a.875.875,0,0,1,1.75,0V1.75h5.25V.875a.875.875,0,0,1,1.75,0V1.75h.875A1.752,1.752,0,0,1,14,3.5v8.75A1.752,1.752,0,0,1,12.25,14ZM3.5,4.375a.875.875,0,0,0,0,1.75h7a.875.875,0,0,0,0-1.75Z"
@@ -120,9 +120,20 @@ const signin = [
 ];
 function SignUp() {
 
+  useEffect(()=>{
+
+    if(localStorage.getItem("user-info")){
+      history.push("/dashboard")
+    }
+  },[])
+
   const[name,setName]=useState("")
   const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
+
+  const history=useHistory();
+
+
 
   async function action(){
     let item={
@@ -149,7 +160,9 @@ function SignUp() {
       body:JSON.stringify(item)
     })
     result=await result.json();
-    console.log("Result")
+    console.warn("Result", result)
+    localStorage.setItem("user-info", JSON.stringify(result));
+    history.push('/dashboard')
 
 
   }
@@ -272,7 +285,7 @@ function SignUp() {
                 </Form.Item>
 
                 <Form.Item>
-                <Link to="/dashboard">
+                
                 <Button
                     style={{ width: "100%" }}
                     type="primary"
@@ -281,7 +294,7 @@ function SignUp() {
                   >
                     SIGN UP
                   </Button>
-                  </Link>
+                  
                   
                 </Form.Item>
               </Form>
