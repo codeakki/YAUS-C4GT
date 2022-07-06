@@ -64,7 +64,15 @@
 ![image](https://user-images.githubusercontent.com/76440986/177270004-b1a7dc7c-e2af-4b94-bfbf-bd42b9367ed0.png)
 
 
+## 6th July, 2022
 
+✅ Authentication completed.<br>
+✅ Protected routes are done.<br>
+✅ Sign In, Sign Up, Log Out working properly.<br>
+
+
+
+![Screenshot (47)](https://user-images.githubusercontent.com/84350895/177587979-7a7c5e4a-43ee-44a5-be19-eaa306668607.png)
 
 
 
