@@ -57,7 +57,7 @@ function Fourth() {
             }}
         >
             <h3 style={{ marginRight: '89%', marginTop: '-25px' }}>Link Data </h3>
-            <h5 style={{ marginRight: '40%' }}>Add the data that you want to be passed to your app via this link. This data is also used to configure link functions like routing, attribution windows, etc. All keys and values are case-sensitive</h5>
+            <h5 style={{ marginRight: '30%' }}>Add the data that you want to be passed to your app via this link. This data is also used to configure link functions like routing, attribution windows, etc. All keys and values are case-sensitive</h5>
 
 
             <Form.Item label="Key-Value">

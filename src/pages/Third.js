@@ -58,7 +58,7 @@ function Third() {
             }}
         >
             <h3 style={{ marginRight: '92%', marginTop: '-25px' }}>Redirects </h3>
-            <h5 style={{ marginRight: '50%' }}>Tell us what to do if the app is not installed when the user clicks on the link. We can take the user to the app store, open a web page, or open adeepview.</h5>
+            <h5 style={{ marginRight: '30%' }}>Tell us what to do if the app is not installed when the user clicks on the link. We can take the user to the app store, open a web page, or open adeepview.</h5>
 
 
             <Form.Item label="iOS">
@@ -109,6 +109,7 @@ function Third() {
                     >
                  <Input addonBefore={selectBefore}  defaultValue="Enter Url"  style={{
                             width: 500,}}/>
+
                     </Form.Item>
                 </Space>
             </Form.Item>

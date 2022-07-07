@@ -72,8 +72,8 @@ function First() {
                 span: 2,
             }}
         >
-            <h3  style={{ marginRight: '85%' }}>Name Your Link </h3>
-               <h5 style={{ marginRight: '40%' }}>Let's start by naming your link and creating an alias. Make the link title easy to remember for you , as it will be displayed in the Quick Links table.</h5> 
+            <h3  style={{ marginRight: '82%' }}>Name Your Link </h3>
+               <h5 style={{ marginRight: '30%' }}>Let's start by naming your link and creating an alias. Make the link title easy to remember for you , as it will be displayed in the Quick Links table.</h5> 
             <Form.Item label="Link Title" required tooltip="This is a required field" value="vertical">
                 <Space>
                     <Form.Item
@@ -143,9 +143,9 @@ function First() {
                 </Space>
             </Form.Item>
             <Form.Item label=" " colon={false}>
-                <Button type="primary" htmlType="submit">
+               {/*  <Button type="primary" htmlType="submit">
                     Submit
-                </Button>
+                </Button> */}
             </Form.Item>
         </Form>
     );

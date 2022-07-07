@@ -118,8 +118,8 @@ function Fifth() {
                 span: 2,
             }}
         >
-            <h3 style={{ marginRight: '83%', marginTop: '-25px' }}>Social Media Tags </h3>
-            <h5 style={{ marginRight: '45%' }}>When a link is shared on social media platforms, it generally shows a preview of title, description, and image</h5>
+            <h3 style={{ marginRight: '81%', marginTop: '-25px' }}>Social Media Tags </h3>
+            <h5 style={{ marginRight: '30%' }}>When a link is shared on social media platforms, it generally shows a preview of title, description, and image</h5>
 
 
             <Form.Item label="Title" tooltip={{

@@ -60,8 +60,8 @@ function Second() {
                 span: 2,
             }}
         >
-            <h3 style={{ marginRight: '85%', marginTop: '-25px' }}>Analytics Tags </h3>
-            <h5 style={{ marginRight: '44%' }}>We recommend adding analytics tags that can be used to filter and compare performance of various links</h5>
+            <h3 style={{ marginRight: '83%', marginTop: '-25px' }}>Analytics Tags </h3>
+            <h5 style={{ marginRight: '30%' }}>We recommend adding analytics tags that can be used to filter and compare performance of various links</h5>
 
 
             <Form.Item label="Feature (utm_medium)" tooltip={{
