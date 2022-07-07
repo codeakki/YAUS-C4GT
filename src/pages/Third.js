@@ -1,5 +1,4 @@
-import { Button, Form, Input, Select, Space, Tooltip, Typography, Cascader } from 'antd';
-import { InfoCircleOutlined } from '@ant-design/icons';
+import {  Form, Input, Select, Space} from 'antd';
 import { Checkbox } from 'antd';
 import { useState } from 'react';
 const { Option } = Select;
@@ -11,33 +10,19 @@ const selectBefore = (
         <Option value="Defaultt">Default</Option>
     </Select>
 );
-const children =[];
 
-
-const handleChange = (value) => {
-    console.log(`selected ${value}`);
-};
 
 const onChange = (value) => {
     console.log(`selected ${value}`);
 };
-const onSearch = (value) => {
-    console.log('search:', value);
-};
-const onChangeCheck = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
-  
 
 function Third() {
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
     const [form] = Form.useForm();
-    const [formLayout, setFormLayout] = useState('vertical');
-    const onFormLayoutChange = ({ layout }) => {
-        setFormLayout(layout);
-    };
+    const [formLayout] = useState('vertical');
+
     const formItemLayout =
         formLayout === 'vertical'
             ? {
@@ -52,7 +37,6 @@ function Third() {
     return (
 
         <Form
-            /* type="felx" */
             justify="center"
             align="middle"
             margin="auto"
@@ -91,8 +75,6 @@ function Third() {
                     >
                  <Input addonBefore={selectBefore}  defaultValue="Enter Url"  style={{
                             width: 500,}}/>
-                        {/*     {children}
-                        </Input> */}
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -110,8 +92,6 @@ function Third() {
                     >
                  <Input addonBefore={selectBefore}  defaultValue="Enter Url"  style={{
                             width: 500,}}/>
-                        {/*     {children}
-                        </Input> */}
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -129,8 +109,6 @@ function Third() {
                     >
                  <Input addonBefore={selectBefore}  defaultValue="Enter Url"  style={{
                             width: 500,}}/>
-                        {/*     {children}
-                        </Input> */}
                     </Form.Item>
                 </Space>
             </Form.Item>

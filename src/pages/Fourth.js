@@ -1,6 +1,4 @@
-import { Button, Form, Input, Select, Space, Tooltip, Typography, Cascader } from 'antd';
-import { InfoCircleOutlined } from '@ant-design/icons';
-import { Checkbox } from 'antd';
+import { Button, Form, Input, Select, Space } from 'antd';
 import { useState } from 'react';
 const { Option } = Select;
 
@@ -12,24 +10,7 @@ const selectBefore = (
         <Option value="desktop">$desktop_deeplink_path</Option>
     </Select>
 );
-const children =[];
 
-
-const handleChange = (value) => {
-    console.log(`selected ${value}`);
-};
-
-
-const onChange = (value) => {
-    console.log(`selected ${value}`);
-};
-const onSearch = (value) => {
-    console.log('search:', value);
-};
-const onChangeCheck = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
-  
 
 function Fourth() {
     const onFinish = (values) => {
@@ -75,8 +56,8 @@ function Fourth() {
                 span: 2,
             }}
         >
-            <h3 style={{ marginRight: '92%', marginTop: '-25px' }}>Link Data </h3>
-            <h5 style={{ marginRight: '53%' }}>Add the data that you want to be passed to your app via this link. This data is also used to configure link functions like routing, attribution windows, etc. All keys and values are case-sensitive</h5>
+            <h3 style={{ marginRight: '89%', marginTop: '-25px' }}>Link Data </h3>
+            <h5 style={{ marginRight: '40%' }}>Add the data that you want to be passed to your app via this link. This data is also used to configure link functions like routing, attribution windows, etc. All keys and values are case-sensitive</h5>
 
 
             <Form.Item label="Key-Value">
@@ -91,10 +72,9 @@ function Fourth() {
                             },
                         ]}
                     >
-                 <Input addonBefore={selectBefore}  /* defaultValue="Enter Url" */  style={{
+                 <Input addonBefore={selectBefore}  style={{
                             width: 500,}}/>
-                        {/*     {children}
-                        </Input> */}
+
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -110,10 +90,9 @@ function Fourth() {
                             },
                         ]}
                     >
-                 <Input addonBefore={selectBefore}  /* defaultValue="Enter Url" */  style={{
+                 <Input addonBefore={selectBefore}  style={{
                             width: 500,}}/>
-                        {/*     {children}
-                        </Input> */}
+                    
                     </Form.Item>
                 </Space>
             </Form.Item>

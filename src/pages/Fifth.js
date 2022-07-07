@@ -3,17 +3,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 import { Upload, message } from 'antd';
 import { useState } from 'react';
 import { Menu } from 'antd';
-import First from "./First"
-const { Option } = Select;
 
-const selectBefore = (
-    <Select defaultValue="http://" className="select-before">
-        <Option value="http://">http://</Option>
-        <Option value="https://">https://</Option>
-    </Select>
-);
-
-const children = [];
 
 const handleChange = (value) => {
     console.log(`selected ${value}`);
@@ -107,7 +97,7 @@ function Fifth() {
     return (
 
         <Form
-            /* type="felx" */
+          
             justify="center"
             align="middle"
             margin="auto"
@@ -122,14 +112,14 @@ function Fifth() {
             }}
 
             labelCol={{
-                span: 8,
+                span: 6,
             }}
             wrapperCol={{
                 span: 2,
             }}
         >
-            <h3 style={{ marginRight: '85%', marginTop: '-25px' }}>Social Media Tags </h3>
-            <h5 style={{ marginRight: '450px' }}>When a link is shared on social media platforms, it generally shows a preview of title, description, and image</h5>
+            <h3 style={{ marginRight: '83%', marginTop: '-25px' }}>Social Media Tags </h3>
+            <h5 style={{ marginRight: '45%' }}>When a link is shared on social media platforms, it generally shows a preview of title, description, and image</h5>
 
 
             <Form.Item label="Title" tooltip={{
@@ -179,8 +169,7 @@ function Fifth() {
 
                             onChange={handleChange}
                         />
-                        {/*     {children}
-                        </Input> */}
+                       
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -200,11 +189,6 @@ function Fifth() {
                     <div>
      {componentsSwtich(selectedMenuItem)}
    </div>
-            </Form.Item>
-            <Form.Item label=" " colon={false}>
-                {/* <Button type="primary" htmlType="submit">
-                    Submit
-                </Button> */}
             </Form.Item>
         </Form>
     );
