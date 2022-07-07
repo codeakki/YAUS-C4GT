@@ -1,4 +1,4 @@
-import { Button, Form, Input, Select, Space, Tooltip, Typography, Cascader } from 'antd';
+import { Form, Input, Select, Space } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 const { Option } = Select;
@@ -14,7 +14,7 @@ const children = [];
 
 const handleChange = (value) => {
     console.log(`selected ${value}`);
-  };
+};
 
 
 function Second() {
@@ -40,7 +40,6 @@ function Second() {
     return (
 
         <Form
-            /* type="felx" */
             justify="center"
             align="middle"
             margin="auto"
@@ -61,8 +60,8 @@ function Second() {
                 span: 2,
             }}
         >
-            <h3 style={{ marginRight: '88%',marginTop:'-25px'}}>Analytics Tags </h3>
-            <h5 style={{ marginRight: '440px' }}>We recommend adding analytics tags that can be used to filter and compare performance of various links</h5>
+            <h3 style={{ marginRight: '83%', marginTop: '-25px' }}>Analytics Tags </h3>
+            <h5 style={{ marginRight: '30%' }}>We recommend adding analytics tags that can be used to filter and compare performance of various links</h5>
 
 
             <Form.Item label="Feature (utm_medium)" tooltip={{
@@ -81,15 +80,14 @@ function Second() {
                         ]}
                     >
                         <Input
-                           /*  mode="tags" */
+                            /*  mode="tags" */
                             style={{
                                 width: 500,
                             }}
                             placeholder="marketing"
                             onChange={handleChange}
                         />
-                        {/*     {children}
-                        </Input> */}
+
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -109,15 +107,14 @@ function Second() {
                         ]}
                     >
                         <Input
-                           /*  mode="tags" */
+
                             style={{
                                 width: 500,
                             }}
                             placeholder="e.g.Facebook,Twitter"
                             onChange={handleChange}
                         />
-                        {/*     {children}
-                        </Input> */}
+
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -137,15 +134,14 @@ function Second() {
                         ]}
                     >
                         <Input
-                           /*  mode="tags" */
+
                             style={{
                                 width: 500,
                             }}
                             placeholder="Black Friday"
                             onChange={handleChange}
                         />
-                        {/*     {children}
-                        </Input> */}
+
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -176,11 +172,6 @@ function Second() {
                         </Select>
                     </Form.Item>
                 </Space>
-            </Form.Item>
-            <Form.Item label=" " colon={false}>
-                {/* <Button type="primary" htmlType="submit">
-                    Submit
-                </Button> */}
             </Form.Item>
         </Form>
     );
