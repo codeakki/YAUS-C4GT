@@ -1,16 +1,11 @@
-import { Button, Form, Input, Select, Space, Tooltip, Typography, Cascader } from 'antd';
+import { Button, Form, Input, Select, Space } from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-const { Option } = Select;
+import axios from 'axios';
 
-const selectBefore = (
-    <Select defaultValue="http://" className="select-before">
-        <Option value="http://">http://</Option>
-        <Option value="https://">https://</Option>
-    </Select>
-);
 
 function First() {
+    const baseUrl = "https://3333-samagradevelopme-yaus-1e29jjtbuq3.ws-us51.gitpod.io/api";
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -19,6 +14,45 @@ function First() {
     const onFormLayoutChange = ({ layout }) => {
         setFormLayout(layout);
     };
+    const [state, setState] = useState({
+        user: '0fe6ff38-fc46-11ec-b939-0242ac120001',
+        url: '',
+        project: '0fe6ff38-fc46-11ec-b939-0242ac120002',
+        customHashId: '',
+    });
+    const handleSubmit = (e) => {
+        const userData = {
+            customHashId: state.customHashId,
+            project: state.project,
+            url: state.url,
+            user: state.user
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'JWT fefege...',
+            "Access-Control-Allow-Origin": "*"
+        }
+        console.log(userData);
+        /*  console.log(baseUrl+{customHashId});   */
+        axios.post(`${baseUrl}/register`, userData, { headers: headers }).then((response) => {
+            console.log(response.status);
+            console.log(response.data.token);
+            console.log(`${baseUrl}/${state.customHashId}`);
+
+        });
+
+    }
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        /*  console.log(`${baseUrl}/${state.customHashId}`); */
+        setState({
+            ...state,
+            [e.target.name]: value
+
+        });
+    };
+
     const formItemLayout =
         formLayout === 'vertical'
             ? {
@@ -33,7 +67,6 @@ function First() {
     return (
 
         <Form
-            /* type="felx" */
             justify="center"
             align="middle"
             margin="auto"
@@ -42,10 +75,8 @@ function First() {
             {...formItemLayout}
             layout={formLayout}
             form={form}
-            onFinish={onFinish}
-            initialValues={{
-                layout: formLayout,
-            }}
+            onSubmit={e => e.preventDefault()}
+            onFinish={handleSubmit}
 
             labelCol={{
                 span: 8,
@@ -54,17 +85,17 @@ function First() {
                 span: 2,
             }}
         >
-            <h3  style={{ marginRight: '85%' }}>Name Your Link </h3>
-               <h5 style={{ marginRight: '240px' }}>Let's start by naming your link and creating an alias. Make the link title easy to remember for you , as it will be displayed in the Quick Links table.</h5> 
+            <h3 style={{ marginRight: '82%' }}>Name Your Link </h3>
+            <h5 style={{ marginRight: '30%' }}>Let's start by naming your link and creating an alias. Make the link title easy to remember for you , as it will be displayed in the Quick Links table.</h5>
             <Form.Item label="Link Title" required tooltip="This is a required field" value="vertical">
                 <Space>
                     <Form.Item
-                        name="username"
+                        /* name="username" */
                         noStyle
                         rules={[
                             {
                                 required: true,
-                                message: 'Username is required',
+                                message: 'Title is required',
                             },
                         ]}
                     >
@@ -77,18 +108,10 @@ function First() {
                     </Form.Item>
                 </Space>
             </Form.Item>
-
-            {/*   <Space direction="vertical">
-                <Form.Item label="Link Domain">
-                    <Input addonBefore="ubwee.app.link/" defaultValue="TT141kANAe" />
-                </Form.Item>
-            </Space> */}
-
-
             <Form.Item label="Link Domain" required tooltip="This is a required field">
                 <Input.Group compact>
                     <Form.Item
-                        name={['address', 'province']}
+                        /*    name={['link']} */
                         noStyle
                         rules={[
                             {
@@ -97,41 +120,29 @@ function First() {
                             },
                         ]}
                     >
-                        <Input addonBefore="ubwee.app.link/" initialValues="TT141kANAe" style={{
-                            width: 500,
-                        }} />
+                        <div className="steps-action" display="inline-flex">
+                            <Input addonBefore="ubwee.app.link/" initialValues="TT141kANAe" style={{
+                                width: 500,
+                            }} id="customHashId" name="customHashId" value={state.customHashId}
+                                onChange={handleChange} />                  
+                        </div>
                     </Form.Item>
-                    {/* <Form.Item
-                        name={['address', 'street']}
-                        noStyle
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Street is required',
-                            },
-                        ]}
-                    >
-                        <Input
-                            style={{
-                                width: '50%',
-                            }}
-                            placeholder="Input street"
-                        />
-                    </Form.Item> */}
+
                 </Input.Group>
             </Form.Item>
+
             <Form.Item label="Original Web URL" tooltip={{
                 title: 'Tooltip with customize icon',
                 icon: <InfoCircleOutlined />,
             }}>
                 <Space>
                     <Form.Item
-                        name="weburl"
+                        /* name="url" */
                         noStyle
                         rules={[
                             {
-                                required: false,
-                                message: 'Username is required',
+                                required: true,
+                                message: 'Url is required',
                             },
                         ]}
                     >
@@ -140,14 +151,20 @@ function First() {
                                 width: 500,
                             }}
                             placeholder="Paste a Web URL "
+                            id="url"
+                            name="url"
+                            value={state.url}
+                            onChange={handleChange}
                         />
                     </Form.Item>
                 </Space>
             </Form.Item>
             <Form.Item label=" " colon={false}>
-                {/* <Button type="primary" htmlType="submit">
-                    Submit
-                </Button> */}
+                <Button type="submit" htmlType="submit" align="right"  onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
+                    Copy
+                </Button>
+
+
             </Form.Item>
         </Form>
     );
