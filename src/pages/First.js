@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 function First() {
-    const baseUrl="https://3333-samagradevelopme-yaus-1j01lqhzbbq.ws-us53.gitpod.io/api";
+    const baseUrl = "https://3333-samagradevelopme-yaus-1e29jjtbuq3.ws-us51.gitpod.io/api";
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -33,25 +33,23 @@ function First() {
             "Access-Control-Allow-Origin": "*"
         }
         console.log(userData);
-       /*  console.log(baseUrl+{customHashId});   */ 
+        /*  console.log(baseUrl+{customHashId});   */
         axios.post(`${baseUrl}/register`, userData, { headers: headers }).then((response) => {
             console.log(response.status);
             console.log(response.data.token);
             console.log(`${baseUrl}/${state.customHashId}`);
-            
+
         });
 
     }
-    
 
-   
     const handleChange = (e) => {
         const value = e.target.value;
-       /*  console.log(`${baseUrl}/${state.customHashId}`); */
+        /*  console.log(`${baseUrl}/${state.customHashId}`); */
         setState({
             ...state,
             [e.target.name]: value
-            
+
         });
     };
 
@@ -113,7 +111,7 @@ function First() {
             <Form.Item label="Link Domain" required tooltip="This is a required field">
                 <Input.Group compact>
                     <Form.Item
-                     /*    name={['link']} */
+                        /*    name={['link']} */
                         noStyle
                         rules={[
                             {
@@ -122,10 +120,12 @@ function First() {
                             },
                         ]}
                     >
-                        <Input addonBefore="ubwee.app.link/" initialValues="TT141kANAe" style={{
-                            width: 500,
-                        }} id="customHashId" name="customHashId" value={state.customHashId}
-                            onChange={handleChange} />
+                        <div className="steps-action" display="inline-flex">
+                            <Input addonBefore="ubwee.app.link/" initialValues="TT141kANAe" style={{
+                                width: 500,
+                            }} id="customHashId" name="customHashId" value={state.customHashId}
+                                onChange={handleChange} />                  
+                        </div>
                     </Form.Item>
 
                 </Input.Group>
@@ -160,10 +160,11 @@ function First() {
                 </Space>
             </Form.Item>
             <Form.Item label=" " colon={false}>
-                <Button type="submit" htmlType="submit">
-                    Submit
+                <Button type="submit" htmlType="submit" align="right"  onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
+                    Copy
                 </Button>
-            
+
+
             </Form.Item>
         </Form>
     );
