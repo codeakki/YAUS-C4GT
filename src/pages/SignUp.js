@@ -11,7 +11,7 @@
 */
 import React, { Component,useEffect,useState } from "react";
 
-import React, {useEffect,useState } from "react";
+
 import { useHistory } from "react-router-dom";
 
 import {
@@ -161,7 +161,7 @@ function SignUp() {
       body:JSON.stringify(item)
     })
     result=await result.json();
-    console.warn("Result", result)
+    // console.warn("Result", result)
     localStorage.setItem("user-info", JSON.stringify(result));
     history.push('/dashboard')
 
@@ -229,10 +229,10 @@ function SignUp() {
 
             <Card
               className="card-signup header-solid h-full ant-card pt-0"
-              title={<h5>Create Your Account With</h5>}
+              // title={<h5>Create Your Account With</h5>}
               bordered="false"
             >
-              <div className="sign-up-gateways">
+              {/* <div className="sign-up-gateways">
                 <Button type="false">
                   <img src={logo1} alt="logo 1" />
                 </Button>
@@ -242,8 +242,8 @@ function SignUp() {
                 <Button type="false">
                   <img src={logo3} alt="logo 3" />
                 </Button>
-              </div>
-              <p className="text-center my-25 font-semibold text-muted">Or</p>
+              </div> */}
+              {/* <p className="text-center my-25 font-semibold text-muted">Or</p> */}
               <Form
                 name="basic"
                 initialValues={{ remember: true }}

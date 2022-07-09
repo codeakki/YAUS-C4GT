@@ -115,7 +115,7 @@ function Header({
             <>
               <a onClick={(e) => e.preventDefault()}>
                 <Space>
-                {profile}{local_info.user.email} 
+                {profile}{ local_info.user.email} 
                   
                 </Space>
               </a>
