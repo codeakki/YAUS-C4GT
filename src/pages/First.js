@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 function First() {
-    const baseUrl = "https://3333-samagradevelopme-yaus-1e29jjtbuq3.ws-us51.gitpod.io/api";
+    const baseUrl = "https://3333-samagradevelopme-yaus-max8f6sjs6u.ws-us53.gitpod.io/api";
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -121,10 +121,10 @@ function First() {
                         ]}
                     >
                         <div className="steps-action" display="inline-flex">
-                            <Input addonBefore="ubwee.app.link/" initialValues="TT141kANAe" style={{
+                            <Input addonBefore="yaus.xyz/" initialValues="TT141kANAe" style={{
                                 width: 500,
                             }} id="customHashId" name="customHashId" value={state.customHashId}
-                                onChange={handleChange} />                  
+                                onChange={handleChange} />
                         </div>
                     </Form.Item>
 
@@ -160,7 +160,7 @@ function First() {
                 </Space>
             </Form.Item>
             <Form.Item label=" " colon={false}>
-                <Button type="submit" htmlType="submit" align="right"  onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
+                <Button type="submit" htmlType="submit" align="right" onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
                     Copy
                 </Button>
 
@@ -170,4 +170,5 @@ function First() {
     );
 };
 
-export default First; 
+export default First;
+
