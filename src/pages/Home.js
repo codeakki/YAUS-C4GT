@@ -1,14 +1,4 @@
-/*!
-  =========================================================
-  * Muse Ant Design Dashboard - v1.0.0
-  =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
-  =========================================================
-  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
+
 import { useState } from "react";
 
 import {
@@ -141,29 +131,29 @@ function Home() {
   ];
   const count = [
     {
-      today: "Today’s Sales",
-      title: "$53,000",
+      today: "Total Link Click",
+      title: "15,300",
       persent: "+30%",
       icon: dollor,
       bnb: "bnb2",
     },
     {
-      today: "Today’s Users",
-      title: "3,200",
+      today: "New Users",
+      title: "200",
       persent: "+20%",
       icon: profile,
       bnb: "bnb2",
     },
     {
       today: "New Clients",
-      title: "+1,200",
+      title: "+120",
       persent: "-20%",
       icon: heart,
       bnb: "redtext",
     },
     {
-      today: "New Orders",
-      title: "$13,200",
+      today: "New Link",
+      title: "3,200",
       persent: "10%",
       icon: cart,
       bnb: "bnb2",
@@ -342,52 +332,53 @@ function Home() {
 
   return (
     <>
-      <div className="layout-content">
-        <Row className="rowgap-vbox" gutter={[24, 0]}>
-          {count.map((c, index) => (
-            <Col
-              key={index}
-              xs={24}
-              sm={24}
-              md={12}
-              lg={6}
-              xl={6}
-              className="mb-24"
-            >
-              <Card bordered={false} className="criclebox ">
-                <div className="number">
-                  <Row align="middle" gutter={[24, 0]}>
-                    <Col xs={18}>
-                      <span>{c.today}</span>
-                      <Title level={3}>
-                        {c.title} <small className={c.bnb}>{c.persent}</small>
-                      </Title>
-                    </Col>
-                    <Col xs={6}>
-                      <div className="icon-box">{c.icon}</div>
-                    </Col>
-                  </Row>
-                </div>
+      <div className="bg-images">
+        <div className="layout-content">
+          <Row className="rowgap-vbox" gutter={[24, 0]}>
+            {count.map((c, index) => (
+              <Col
+                key={index}
+                xs={24}
+                sm={24}
+                md={12}
+                lg={6}
+                xl={6}
+                className="mb-24"
+              >
+                <Card bordered={false} className="criclebox ">
+                  <div className="number">
+                    <Row align="middle" gutter={[24, 0]}>
+                      <Col xs={18}>
+                        <span>{c.today}</span>
+                        <Title level={3}>
+                          {c.title} <small className={c.bnb}>{c.persent}</small>
+                        </Title>
+                      </Col>
+                      <Col xs={6}>
+                        <div className="icon-box">{c.icon}</div>
+                      </Col>
+                    </Row>
+                  </div>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+
+          <Row gutter={[24, 0]}>
+            <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-24">
+              <Card bordered={false} className="criclebox h-full">
+                <Echart />
               </Card>
             </Col>
-          ))}
-        </Row>
+            <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-24">
+              <Card bordered={false} className="criclebox h-full">
+                <LineChart />
+              </Card>
+            </Col>
+          </Row>
 
-        <Row gutter={[24, 0]}>
-          <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-24">
-            <Card bordered={false} className="criclebox h-full">
-              <Echart />
-            </Card>
-          </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-24">
-            <Card bordered={false} className="criclebox h-full">
-              <LineChart />
-            </Card>
-          </Col>
-        </Row>
-
-        <Row gutter={[24, 0]}>
-          <Col xs={24} sm={24} md={12} lg={12} xl={16} className="mb-24">
+          <Row gutter={[24, 0]}>
+            {/*  <Col xs={24} sm={24} md={12} lg={12} xl={16} className="mb-24">
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
@@ -455,8 +446,8 @@ function Home() {
                 </Upload>
               </div>
             </Card>
-          </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={8} className="mb-24">
+          </Col> */}
+            {/*  <Col xs={24} sm={24} md={12} lg={12} xl={8} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <div className="timeline-box">
                 <Title level={5}>Orders History</Title>
@@ -485,14 +476,14 @@ function Home() {
                 </Button>
               </div>
             </Card>
-          </Col>
-        </Row>
+          </Col> */}
+          </Row>
 
-        {/* <Row gutter={[24, 0]}>
+          {/* <Row gutter={[24, 0]}>
           <Col xs={24} md={12} sm={24} lg={12} xl={14} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <Row gutter> */}
-                {/* <Col
+          {/* <Col
                   xs={24}
                   md={12}
                   sm={24}
@@ -500,7 +491,7 @@ function Home() {
                   xl={14}
                   className="mobile-24"
                 > */}
-                  {/* <div className="h-full col-content p-20">
+          {/* <div className="h-full col-content p-20">
                     <div className="ant-muse">
                       <Text>Built by developers</Text>
                       <Title level={5}>Muse Dashboard for Ant Design</Title>
@@ -516,8 +507,8 @@ function Home() {
                       </a>
                     </div>
                   </div> */}
-                {/* </Col> */}
-                {/* <Col
+          {/* </Col> */}
+          {/* <Col
                   xs={24}
                   md={12}
                   sm={24}
@@ -529,7 +520,7 @@ function Home() {
                     <img src={card} alt="" className="border10" />
                   </div>
                 </Col> */}
-              {/* </Row>
+          {/* </Row>
             </Card>
           </Col>
 
@@ -553,6 +544,11 @@ function Home() {
             </Card>
           </Col>
         </Row> */}
+        </div>
+      </div>
+      <div class="bg-text">
+       {/*  <h1>I am John Doe</h1> */}
+        <p style={{fontSize: '40px'}}>Coming Soon....</p>
       </div>
     </>
   );

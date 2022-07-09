@@ -30,7 +30,7 @@ function Footer() {
           </div> */}
         </Col>
         <Col xs={24} md={12} lg={12}>
-          <div className="footer-menu">
+        {/*   <div className="footer-menu">
             <ul>
               <li className="nav-item">
                 <a
@@ -69,7 +69,7 @@ function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </Col>
       </Row>
     </AntFooter>

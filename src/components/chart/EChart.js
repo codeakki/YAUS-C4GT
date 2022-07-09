@@ -27,12 +27,12 @@ function EChart() {
       user: "Clicks",
     },
     {
-      Title: "$772",
-      user: "Sales",
+      Title: "772",
+      user: "Active User",
     },
     {
       Title: "82",
-      user: "Items",
+      user: "Today",
     },
   ];
 
@@ -48,7 +48,7 @@ function EChart() {
         />
       </div>
       <div className="chart-vistior">
-        <Title level={5}>Active Users</Title>
+        <Title level={5}>Click events</Title>
         <Paragraph className="lastweek">
           than last week <span className="bnb2">+30%</span>
         </Paragraph>
