@@ -221,17 +221,17 @@ function SignUp() {
               bordered="false"
             >
               <div className="sign-up-gateways">
-                <Button type="false">
+                {/* <Button type="false">
                   <img src={logo1} alt="logo 1" />
-                </Button>
-                <Button type="false">
+                </Button> */}
+                {/* <Button type="false">
                   <img src={logo2} alt="logo 2" />
-                </Button>
-                <Button type="false">
+                </Button> */}
+                {/* <Button type="false">
                   <img src={logo3} alt="logo 3" />
-                </Button>
+                </Button> */}
               </div>
-              <p className="text-center my-25 font-semibold text-muted">Or</p>
+              <p className="text-center my-25 font-semibold text-muted"></p>
               <Form
                 name="basic"
                 initialValues={{ remember: true }}
