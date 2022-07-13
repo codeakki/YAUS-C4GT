@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 function First() {
-    const baseUrl = "https://3333-samagradevelopme-yaus-max8f6sjs6u.ws-us53.gitpod.io/api";
+    const baseUrl = " https://yaus.xyz";
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -163,8 +163,6 @@ function First() {
                 <Button type="submit" htmlType="submit" align="right" onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
                     Copy
                 </Button>
-
-
             </Form.Item>
         </Form>
     );
