@@ -1,78 +1,111 @@
-import { Button, Form, Input, Select, Space} from 'antd';
+import { Button, Form, Input, Modal, Space, Card,Avatar} from 'antd';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Upload, message } from 'antd';
 import { useState } from 'react';
 import { Menu } from 'antd';
-
+const { Meta } = Card;
 
 const handleChange = (value) => {
     console.log(`selected ${value}`);
 };
 
+
+
 const props = {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     headers: {
-      authorization: 'authorization-text',
+        authorization: 'authorization-text',
     },
     onChange(info) {
-      if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
+        if (info.file.status !== 'uploading') {
+            console.log(info.file, info.fileList);
+        }
+        if (info.file.status === 'done') {
+            message.success(`${info.file.name} file uploaded successfully`);
+        } else if (info.file.status === 'error') {
+            message.error(`${info.file.name} file upload failed.`);
+        }
     },
-  };
+};
 
 
 function Fifth() {
-    const [selectedMenuItem, setSelectedMenuItem]= useState('useUrl');
 
- const componentsSwtich = (key) => {
- switch (key) {
-   case 'useUrl':
-     return ( <> 
-     <h5 style={{width: 500,marginTop:"10px"}}>Please provide a valid image file url from the web ending in .png, .jpg, or .jpeg or upload your own valid image.</h5>
-     <Form.Item label="Image Url" style={{marginTop:"10px"}}>
-        <Space>
-            <Form.Item
-                name="url"
-                noStyle
-                rules={[
-                    {
-                        required: false,
-                        message: 'title',
-                    },
-                ]}
-            >
-                <Input
-                    style={{
-                        width: 500,
-                    }}
-                    placeholder="e.g https://website.com.tree.jpg"
+    const [selectedMenuItem, setSelectedMenuItem] = useState('useUrl');
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
-                    onChange={handleChange}
-                />
 
-            </Form.Item>
-        </Space>
-    </Form.Item>
-    </>
-    );
-   case 'upload':
-     return (<>
-     <h5 style={{width: 500,marginTop:"10px"}}>Please provide a valid image file url from the web ending in .png, .jpg, or .jpeg or upload your own valid image.</h5>
-     <Upload {...props}>
-    <Button>
-     Click to Upload
-    </Button>
-    </Upload>
-     </>);
-  }
- };
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+    const handleCancel = () => {
+        setIsModalVisible(false);
+      };
+
+
+    const [state, setState] = useState({
+        titleImage: '',
+        urlImg: '',
+        description: '',
+    });
+    const handleChange = (e) => {
+        const value = e.target.value;
+        /*  console.log(`${state.titleImage}`); */
+        setState({
+            ...state,
+            [e.target.name]: value
+
+        });
+    };
+
+    const componentsSwtich = (key) => {
+        switch (key) {
+            case 'useUrl':
+                return (<>
+                    <h5 style={{ width: 500, marginTop: "10px" }}>Please provide a valid image file url from the web ending in .png, .jpg, or .jpeg or upload your own valid image.</h5>
+                    <Form.Item label="Image Url" style={{ marginTop: "10px" }}>
+                        <Space>
+                            <Form.Item
+                                noStyle
+                                rules={[
+                                    {
+                                        required: false,
+                                        message: 'title',
+                                    },
+                                ]}
+                            >
+                                <Input
+                                    name="urlImg"
+                                    id="urlImg" value={state.urlImg}
+                                    style={{
+                                        width: 500,
+                                    }}
+                                    placeholder="e.g https://website.com.tree.jpg"
+
+                                    onChange={handleChange}
+                                />
+
+                            </Form.Item>
+                        </Space>
+                    </Form.Item>
+                </>
+                );
+            case 'upload':
+                return (<>
+                    <h5 style={{ width: 500, marginTop: "10px" }}>Please provide a valid image file url from the web ending in .png, .jpg, or .jpeg or upload your own valid image.</h5>
+                    <Upload {...props}>
+                        <Button>
+                            Click to Upload
+                        </Button>
+                    </Upload>
+                </>);
+        }
+    };
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -82,7 +115,7 @@ function Fifth() {
         setFormLayout(layout);
     };
 
-    
+
     const formItemLayout =
         formLayout === 'vertical'
             ? {
@@ -97,7 +130,7 @@ function Fifth() {
     return (
 
         <Form
-          
+
             justify="center"
             align="middle"
             margin="auto"
@@ -128,7 +161,6 @@ function Fifth() {
             }}>
                 <Space>
                     <Form.Item
-                        name="title"
                         noStyle
                         rules={[
                             {
@@ -141,18 +173,15 @@ function Fifth() {
                             style={{
                                 width: 500,
                             }}
-
+                            id="titleImage" name="titleImage" value={state.titleImage}
                             onChange={handleChange}
                         />
-                        {/*     {children}
-                        </Input> */}
                     </Form.Item>
                 </Space>
             </Form.Item>
             <Form.Item label="Description">
                 <Space>
                     <Form.Item
-                        name="description"
                         noStyle
                         rules={[
                             {
@@ -162,14 +191,13 @@ function Fifth() {
                         ]}
                     >
                         <Input
-                            /*  mode="tags" */
+                            id="description" name="description" value={state.description}
+                            onChange={handleChange}
                             style={{
                                 width: 500,
                             }}
-
-                            onChange={handleChange}
                         />
-                       
+
                     </Form.Item>
                 </Space>
             </Form.Item>
@@ -177,18 +205,34 @@ function Fifth() {
                 title: 'Note that your image may be cropped and aligned differently depending on the social platform.',
                 icon: <InfoCircleOutlined />,
             }}>
-         <Menu style={{width:500}} selectedKeys={selectedMenuItem} mode="horizontal" onClick={(e) => 
-        setSelectedMenuItem(e.key)}>
+                <Menu style={{ width: 500 }} selectedKeys={selectedMenuItem} mode="horizontal" onClick={(e) =>
+                    setSelectedMenuItem(e.key)}>
                     <Menu.Item key="useUrl" >
-                       Use Url 
+                        Use Url
                     </Menu.Item>
                     <Menu.Item key="upload" >
                         Upload Image
                     </Menu.Item>
-                    </Menu>
-                    <div>
-     {componentsSwtich(selectedMenuItem)}
-   </div>
+                </Menu>
+                <div>
+                    {componentsSwtich(selectedMenuItem)}
+                </div>
+            </Form.Item>
+            <Form.Item label=" " colon={false} style={{ marginTop: "-10%" }}>
+                <Button type="preview" align="right" onClick={showModal}>
+                    Preview
+                </Button>
+                <Modal title="Preview" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={450}>
+                    <Card
+                        hoverable
+                        style={{
+                            width: 340,
+                        }}
+                        cover={<img alt="example" src={state.urlImg} />}
+                    >
+                        <Meta  avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title={state.titleImage} description={state.description} />
+                    </Card>
+                </Modal>
             </Form.Item>
         </Form>
     );

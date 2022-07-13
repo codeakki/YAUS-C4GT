@@ -1,35 +1,36 @@
-import { Button, message, Steps} from 'antd';
+import { Button, message, Steps } from 'antd';
 import { useState } from 'react';
 import First from "./First";
 import Second from "./Second";
 import Third from "./Third";
 import Fourth from "./Fourth";
 import Fifth from "./Fifth";
+import { useHistory } from "react-router-dom";
 const { Step } = Steps;
 const steps = [
   {
     title: 'First',
-    content: <First/>,
+    content: <First />,
   },
   {
     title: 'Second',
-    content: <Second/>,
+    content: <Second />,
   },
   {
     title: 'Third',
-    content: <Third/>,
+    content: <Third />,
   },
   {
     title: 'Fourth',
-    content: <Fourth/>,
+    content: <Fourth />,
   },
   {
     title: 'Last',
-    content: <Fifth/>,
+    content: <Fifth />,
   },
 ];
 
-function  FormWizard (){
+function FormWizard() {
   const [current, setCurrent] = useState(0);
 
   const next = () => {
@@ -40,11 +41,18 @@ function  FormWizard (){
     setCurrent(current - 1);
   };
 
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = `/dashboard`;
+    history.push(path);
+  }
+
   return (
     <>
-     <div className="layout-content"   style={{
-                margin: '35px',
-              }}>
+      <div className="layout-content" style={{
+        margin: '35px',
+      }}>
         <Steps current={current} >
           {steps.map((item) => (
             <Step key={item.title} title={item.title} />
@@ -52,8 +60,8 @@ function  FormWizard (){
         </Steps>
         <div className="steps-content">{steps[current].content}</div>
 
-        <div className="steps-action" align="right" style={{marginRight:"50px"}}>
-        {current > 0 && (
+        <div className="steps-action" align="right" style={{ marginRight: "50px" }}>
+          {current > 0 && (
             <Button
               style={{
                 margin: '0 8px',
@@ -69,13 +77,13 @@ function  FormWizard (){
             </Button>
           )}
           {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => message.success('Processing complete!')}>
+            <Button type="primary" onClick={routeChange}>
               Done
             </Button>
           )}
-        
+
         </div>
-    </div>
+      </div>
     </>
   );
 };

@@ -283,10 +283,10 @@ function Sidenav({ color }) {
         </>
           }
        
-       <Menu.Item className="menu-item-header" key="5">
+       {/* <Menu.Item className="menu-item-header" key="5">
           Account Pages
         </Menu.Item>
-        
+         */}
         
       </Menu>
       {/* <div className="aside-footer">
