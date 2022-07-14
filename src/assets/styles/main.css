@@ -381,10 +381,10 @@ body {
 .steps-content {
   min-height: 300px;
   margin-top: 16px;
-  margin-left:30px;
-  margin-right:70px;
-  align-items: center;
-  padding-left: 300px;
+  /* margin-left:30px; */
+  /* margin-right:70px; */
+  /* align-items: center; */
+  /* padding-left: 300px; */
   padding-top: 60px;
   padding-bottom: -20px;
   text-align: center;
@@ -421,8 +421,8 @@ body {
   border: 1px solid #f1f1f1;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 40%;
+  transform: translate(-40%, -50%);
   z-index: 2;
   width: 40%;
   padding: 20px;

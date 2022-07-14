@@ -285,8 +285,13 @@ function Sidenav({ color }) {
        
        {/* <Menu.Item className="menu-item-header" key="5">
           Account Pages
+<<<<<<< HEAD
         </Menu.Item> */}
         
+=======
+        </Menu.Item>
+         */}
+>>>>>>> 8c71c0514de140d604ed3b146ac4a4eb0df4fd11
         
       </Menu>
       {/* <div className="aside-footer">
