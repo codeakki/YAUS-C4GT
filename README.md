@@ -103,7 +103,7 @@
 
 ✅ SDK still in progress.<br>
 ✅ Designed the UI of Dashboard, Link Manager , Summary Dashboard and Reacent Activities page.<br>
-✅ Lnk Manager Page UI completed.<br>
+✅ Link Manager Page UI completed.<br>
 
 
 ![image](https://user-images.githubusercontent.com/84350895/179026664-afa1b1ca-d9e8-4254-829e-ed30168b3837.png)
