@@ -131,7 +131,7 @@ function Home() {
   ];
   const count = [
     {
-      today: "Total Link Click",
+      today: "Total Links Made",
       title: "15,300",
       persent: "+30%",
       icon: dollor,
@@ -152,7 +152,7 @@ function Home() {
       bnb: "redtext",
     },
     {
-      today: "New Link",
+      today: "New Links",
       title: "3,200",
       persent: "10%",
       icon: cart,
@@ -332,7 +332,7 @@ function Home() {
 
   return (
     <>
-      <div className="bg-images">
+      <div >
         <div className="layout-content">
           <Row className="rowgap-vbox" gutter={[24, 0]}>
             {count.map((c, index) => (
@@ -546,10 +546,10 @@ function Home() {
         </Row> */}
         </div>
       </div>
-      <div class="bg-text">
+      {/* <div class="bg-text"> */}
        {/*  <h1>I am John Doe</h1> */}
-        <p style={{fontSize: '40px'}}>Coming Soon....</p>
-      </div>
+        {/* <p style={{fontSize: '40px'}}>Coming Soon....</p> */}
+      {/* </div> */}
     </>
   );
 }
