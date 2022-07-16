@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Form, Steps, Input, Select, Button, Space, Checkbox, Card, Modal, Menu, Avatar, message, Upload } from "antd";
+import { Form, Steps, Input, Select, Tooltip, Button, Space } from "antd";
+import { Checkbox, message, Card, Modal, Menu, Avatar,Alert, Upload, Row, Col } from "antd";
 import axios from 'axios';
+import { CopyOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
 const { Option } = Select;
 const { Step } = Steps;
@@ -29,7 +31,10 @@ const props = {
 };
 
 
+
+
 const FormDemo = () => {
+
     const baseUrl = " https://yaus.xyz";
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
@@ -37,6 +42,7 @@ const FormDemo = () => {
     const [formLayout, setFormLayout] = useState('vertical');
     const [selectedMenuItem, setSelectedMenuItem] = useState('useUrl');
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [modal1Visible, setModal1Visible] = useState(false);
 
     const onFormLayoutChange = ({ layout }) => {
         setFormLayout(layout);
@@ -270,11 +276,6 @@ const FormDemo = () => {
                                             />
                                         </Space>
                                     </Form.Item>
-                                    {/* <Form.Item label=" " colon={false}>
-                                        <Button type="submit" htmlType="submit" align="right" onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
-                                            Copy
-                                        </Button>
-                                    </Form.Item> */}
                                 </div>
                             </div>
                         </>
@@ -537,9 +538,7 @@ const FormDemo = () => {
                                             </Card>
                                         </Modal>
                                     </Form.Item>
-                                  {/*   <Button type="submit" htmlType="submit" align="right" onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
-                                        Done
-                                    </Button> */}
+
                                 </div>
                             </div>
                         </>
@@ -556,12 +555,71 @@ const FormDemo = () => {
                     <Button type="primary" onClick={handleClickNext}>Next</Button>
                 )}
                 {current === 4 && (
-                    <Button form="myForm" type="submit" htmlType="submit" align="right" onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
+                    <>
+                        {/*  <Button form="myForm" type="submit" htmlType="submit" align="right" onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)}>
                         Done
-                    </Button>
+                    </Button> */}
+                        <Button form="myForm" type="submit" htmlType="submit" align="right" onClick={() => setModal1Visible(true)}>
+                            Done
+                        </Button>
+                        <Modal
+                            title="Summary"
+                            width={1000}
+                            style={{
+                                top: 20,
+                            }}
+                            visible={modal1Visible}
+                            onOk={() => setModal1Visible(false)}
+                            onCancel={() => setModal1Visible(false)}
+                        >
+
+                            <Row gutter={[24, 0]}>
+                                <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
+                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <br></br>
+                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <br></br>
+                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <br></br>
+                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <br></br>
+                                    <Alert message="Success Tips" type="success" showIcon />
+
+                                </Col>
+                                <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
+                                    <h2>Preview...</h2>
+                                    <Card
+                                        hoverable
+                                        style={{
+                                            width: 340,
+                                        }}
+                                        cover={<img alt="example" src={state.urlImg} />}
+                                    >
+                                        <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title={state.titleImage} description={state.description} />
+                                    </Card>
+                                    <br></br>
+                                    <Input.Group compact>
+                                        <Input
+                                            style={{
+                                                width: 'calc(100% - 200px)',
+                                            }}
+                                            value={`${baseUrl}/${state.customHashId}`}
+                                        />
+                                        <Tooltip title="copy git url">
+                                            <Button size="small" icon={<CopyOutlined size="large" style={{ fontSize: '150%' }} />} onClick={() => navigator.clipboard.writeText(`${baseUrl}/${state.customHashId}`)} />
+                                        </Tooltip>
+                                    </Input.Group>
+                                </Col>
+                            </Row>
+
+
+                        </Modal>
+
+                    </>
 
                 )}
             </div>
+
 
         </div>
     );

@@ -41,7 +41,6 @@ function App() {
           <Route exact path="/profile"><Protect Cmp={Profile}/></Route>
           <Route exact path="/linkmanager"><Protect Cmp={LinkManager}/></Route>
           <Route exact path="/recent"><Protect Cmp={Recent_Activities}/></Route>
-
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
