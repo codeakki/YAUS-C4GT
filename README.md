@@ -81,3 +81,33 @@
 ✅ Deploy Done.<br>
 ✅ Added Base Url.<br>
 
+
+## 12th July, 2022
+
+✅ Read the documentaion for developing the SDK.<br>
+✅ Setting up of tsdx in local system.<br>
+
+
+## 13th July, 2022
+
+✅ Made a sample SDK using typescript and published it as a npm package.<br>
+✅ Read the GitHub documentation on readmeio/api for generating SDKs<br>
+✅ Wrote some code and got started with the developement of the SDK<br>
+
+
+![image](https://user-images.githubusercontent.com/84350895/179026956-f308bfda-1b54-4c2f-9578-43570306b953.png)
+
+
+
+## 14th July, 2022
+
+✅ SDK still in progress.<br>
+✅ Designed the UI of Dashboard, Link Manager , Summary Dashboard and Reacent Activities page.<br>
+✅ Link Manager Page UI completed.<br>
+
+
+![image](https://user-images.githubusercontent.com/84350895/179026664-afa1b1ca-d9e8-4254-829e-ed30168b3837.png)
+
+
+
+

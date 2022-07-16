@@ -24,6 +24,8 @@ import "./assets/styles/responsive.css";
 import Protect from "./Protect"
 import FormWizard from "./pages/FormWizard";
 import LinkManager from "./pages/Link_Manager"
+import Recent_Activities from "./pages/Recent_Activities"
+
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
           <Route exact path="/billing"><Protect Cmp={Billing}/></Route>
           <Route exact path="/profile"><Protect Cmp={Profile}/></Route>
           <Route exact path="/linkmanager"><Protect Cmp={LinkManager}/></Route>
+          <Route exact path="/recent"><Protect Cmp={Recent_Activities}/></Route>
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
