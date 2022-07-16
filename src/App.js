@@ -38,7 +38,6 @@ function App() {
           <Route exact path="/billing"><Protect Cmp={Billing}/></Route>
           <Route exact path="/profile"><Protect Cmp={Profile}/></Route>
           <Route exact path="/linkmanager"><Protect Cmp={LinkManager}/></Route>
-
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>
