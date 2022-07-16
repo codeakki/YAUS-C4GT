@@ -1,3 +1,5 @@
+import api from 'api';
+
 const sdk=require('@api/yaus_link_generation')
 //application ID
 sdk.auth(' 650c50b5-eae9-442e-88de-fc36be10a21b');
