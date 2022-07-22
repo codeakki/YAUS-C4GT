@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Form, Steps, Input, Select, Tooltip, Button, Space } from "antd";
-import { Checkbox, message, Card, Modal, Menu, Avatar,Alert, Upload, Row, Col } from "antd";
+import { Form, Steps, Input, Select, Tooltip, Button, Space, Layout } from "antd";
+import { Checkbox, message, Card, Modal, Menu, Avatar, Alert, Upload, Row, Col } from "antd";
 import axios from 'axios';
 import { CopyOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
+import { LinkPreview } from '@dhaiwat10/react-link-preview';
+import Interaction from "../components/layout/Interaction";
+import {
+    LOVE_ICON,
+    COMMENT_ICON,
+    SHARE_ICON,
+} from "../components/layout/icons"
+const { Header, Footer, Content } = Layout;
 const { Option } = Select;
 const { Step } = Steps;
 const { Item } = Form;
@@ -89,7 +97,7 @@ const FormDemo = () => {
         project: '0fe6ff38-fc46-11ec-b939-0242ac120002',
         customHashId: '',
         titleImage: '',
-        urlImg: 'https://images.pexels.com/photos/1172253/pexels-photo-1172253.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        urlImg: '',
         description: '',
     });
     const handleSubmit = (e) => {
@@ -526,15 +534,27 @@ const FormDemo = () => {
                                         <Button type="preview" align="right" onClick={showModal}>
                                             Preview
                                         </Button>
-                                        <Modal title="Preview" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={450}>
+                                        <Modal title="Preview" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={550}>
                                             <Card
                                                 hoverable
                                                 style={{
-                                                    width: 340,
+                                                    width: 440,
                                                 }}
-                                                cover={<img alt="example" src={state.urlImg} />}
+                                            /* cover={<img alt="example" src={state.urlImg} />} */
                                             >
-                                                <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title={state.titleImage} description={state.description} />
+
+                                                <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title="Akshay" description={"10 hours ago • Algeria"} />
+                                                <br></br>
+                                                <LinkPreview url={state.url} title="Aksjat" width='400px' fallbackImageSrc="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg" explicitImageSrc={state.urlImg} />
+                                                <br></br>
+                                                <Footer>
+                                                    <br></br>
+                                                    <div class="flexbox-container" justify-content="space-between">
+                                                        &nbsp;&nbsp;<Interaction icon={LOVE_ICON} count={12} style={{ paddingTop: "10px" }} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <Interaction icon={COMMENT_ICON} count={2} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <Interaction icon={SHARE_ICON} count={1} />
+                                                    </div>
+                                                </Footer>
                                             </Card>
                                         </Modal>
                                     </Form.Item>
@@ -591,11 +611,21 @@ const FormDemo = () => {
                                     <Card
                                         hoverable
                                         style={{
-                                            width: 340,
-                                        }}
-                                        cover={<img alt="example" src={state.urlImg} />}
+                                            width: 440,
+                                        }}                              
                                     >
-                                        <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title={state.titleImage} description={state.description} />
+                                        <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title="Akshay" description={"10 hours ago • Algeria"} />
+                                        <br></br>
+                                        <LinkPreview url={state.url} title="Aksjat" width='400px' fallbackImageSrc="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg" explicitImageSrc={state.urlImg} />
+                                        <br></br>
+                                        <Footer>
+                                            <br></br>
+                                            <div class="flexbox-container" justify-content="space-between">
+                                                &nbsp;&nbsp;<Interaction icon={LOVE_ICON} count={12} style={{ paddingTop: "10px" }} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <Interaction icon={COMMENT_ICON} count={2} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <Interaction icon={SHARE_ICON} count={1} />
+                                            </div>
+                                        </Footer>
                                     </Card>
                                     <br></br>
                                     <Input.Group compact>
