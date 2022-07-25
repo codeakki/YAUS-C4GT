@@ -1,5 +1,14 @@
-
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Modal } from "antd";
+import React from "react";
+import { DatePicker, Space } from "antd";
+import { useEffect } from "react";
+import ReactDOM from "react-dom";
+import ReactApexChart from "react-apexcharts";
+import { MinusOutlined } from "@ant-design/icons";
+import lineChart from "../components/chart/configs/lineChart";
+
 import {
   Card,
   Col,
@@ -17,12 +26,14 @@ import {
 } from "antd";
 import Echart from "../components/chart/EChart";
 import LineChart from "../components/chart/LineChart";
-import { AudioOutlined } from '@ant-design/icons';
+import { AudioOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
 
 function Home() {
-  const { Title, Text } = Typography;
+  const [visible, setVisible] = useState(false);
+  const { Title, Paragraph } = Typography;
+  const { RangePicker } = DatePicker;
 
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
 
@@ -53,6 +64,9 @@ function Home() {
       ></path>
     </svg>,
   ];
+
+  //chart data
+
   const profile = [
     <svg
       width="22"
@@ -114,6 +128,7 @@ function Home() {
       ></path>
     </svg>,
   ];
+
   const count = [
     {
       today: "Clicks",
@@ -147,115 +162,180 @@ function Home() {
 
   const columns = [
     {
-      title: 'Date',
-      dataIndex: 'date',
+      title: "Date",
+      dataIndex: "date",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: 'Short URL',
-      dataIndex: 'url',
+      title: "Short URL",
+      dataIndex: "url",
       filters: [
         {
-          text: 'samagra',
-          value: 'https://yaus.xyz/samagra',
-
+          text: "samagra",
+          value: "https://yaus.xyz/samagra",
         },
         {
-          text: 'first',
-          value: 'https://yaus.xyz/first',
+          text: "first",
+          value: "https://yaus.xyz/first",
         },
         {
-          text: 'pass',
-          value: 'https://yaus.xyz/pass',
+          text: "pass",
+          value: "https://yaus.xyz/pass",
         },
         {
-          text: 'hack',
-          value: 'https://yaus.xyz/hack',
+          text: "hack",
+          value: "https://yaus.xyz/hack",
         },
       ],
       onFilter: (value, record) => record.url.startsWith(value),
       filterSearch: true,
-      width: '40%',
+      width: "35%",
     },
     {
-      title: 'Views',
-      dataIndex: 'views',
+      title: "Views",
+      dataIndex: "views",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: 'Installs',
-      dataIndex: 'install',
+      title: "Installs",
+      dataIndex: "install",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: 'Clicks',
-      dataIndex: 'clicks',
+      title: "Clicks",
+      dataIndex: "clicks",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: 'Opens',
-      dataIndex: 'open',
+      title: "Opens",
+      dataIndex: "open",
       sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
     },
   ];
+
   const data = [
     {
       date: "2022-07-09",
       name: "Samagra Website",
       url: <a href="https://yaus.xyz/samagra">https://yaus.xyz/samagra</a>,
-      views:"2",
+      views: "2",
       install: "1",
       clicks: "10",
-      open: "4"
+      open: "4",
+      action: (
+        <Button onClick={() => setVisible(true)} type="primary">
+          Show Statistics
+        </Button>
+      ),
     },
     {
       date: "2022-06-22",
       name: "My First Link",
       url: <a href="https://yaus.xyz/first">https://yaus.xyz/first</a>,
-      views:"12",
+      views: "12",
       install: "21",
       clicks: "5",
-      open: "7"
+      open: "7",
+      action: <Button type="primary">Show Statistics</Button>,
     },
     {
       date: "2022-07-19",
       name: "Competency Passbook",
       url: <a href="https://yaus.xyz/pass">https://yaus.xyz/pass</a>,
-      views:"22",
+      views: "22",
       install: "11",
       clicks: "30",
-      open: "3"
+      open: "3",
+      action: <Button type="primary">Show Statistics</Button>,
     },
     {
       date: "2022-07-03",
       name: "Hackerank",
       url: <a href="https://yaus.xyz/hack">https://yaus.xyz/hack</a>,
-      views:"21",
+      views: "21",
       install: "12",
       clicks: "12",
-      open: "8"
+      open: "8",
+      action: <Button type="primary">Show Statistics</Button>,
     },
   ];
   const suffix = (
     <AudioOutlined
       style={{
         fontSize: 16,
-        color: 'white',
+        color: "white",
       }}
     />
   );
   const onSearch = (value) => console.log(value);
 
-
   const onChange1 = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
+    console.log("params", pagination, filters, sorter, extra);
   };
 
+  const cdata = [
+    {
+      type: "分类一",
+      value: 27,
+    },
+    {
+      type: "分类二",
+      value: 25,
+    },
+    {
+      type: "分类三",
+      value: 18,
+    },
+    {
+      type: "分类四",
+      value: 15,
+    },
+    {
+      type: "分类五",
+      value: 10,
+    },
+    {
+      type: "其他",
+      value: 5,
+    },
+  ];
+
+  const chart_config = {
+    appendPadding: 10,
+    cdata,
+    angleField: "value",
+    colorField: "type",
+    radius: 0.8,
+    label: {
+      type: "outer",
+    },
+    state: {
+      active: {
+        style: {
+          lineWidth: 0,
+          fillOpacity: 0.65,
+        },
+      },
+    },
+
+    interactions: [
+      {
+        type: "element-single-selected",
+      },
+      {
+        type: "element-active",
+      },
+    ],
+  };
 
   return (
     <>
-      <div >
-        <div className="layout-content">
+      <div>
+        {/* <div className="layout-content">
           <Row className="rowgap-vbox" gutter={[24, 0]}>
             {count.map((c, index) => (
               <Col
@@ -310,16 +390,72 @@ function Home() {
                 width: 320,
               }}
             />
+            </div> */}
+        <Space direction="vertical" size={12}>
+          <RangePicker />
+        </Space>
+        
+        
+        <Modal
+          title="Modal 1000px width"
+          centered
+          visible={visible}
+          onOk={() => setVisible(false)}
+          onCancel={() => setVisible(false)}
+          width={500}
+        ></Modal>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;
+        <NavLink to="/LinkCreate">
+          <Button type="primary">Create Your Link</Button>
+        </NavLink>
+        
+        <>
+          <div className="linechart">
+            <div>
+              <Title level={5}> Links Generated Till Now </Title>
+              {/* <Paragraph className="lastweek">
+            than last week <span className="bnb2">+30%</span>
+          </Paragraph> */}
             </div>
-            <br></br>
-            <br></br>
-            <Table columns={columns} dataSource={data} onChange={onChange1} />;
-
+            <div className="sales">
+              <ul>
+                {/* <li>{<MinusOutlined />} Traffic</li>
+            <li>{<MinusOutlined />} Clicks</li> */}
+              </ul>
+            </div>
           </div>
-
-        </div>
+          <ReactApexChart
+            className="full-width"
+            options={lineChart.options}
+            series={lineChart.series}
+            type="area"
+            height={350}
+            width={"100%"}
+          />
+        </>
+        <br></br>
+        <br></br>
+        <Table columns={columns} dataSource={data} onChange={onChange1} />;
       </div>
 
+      {/* </div>
+      </div> */}
     </>
   );
 }
