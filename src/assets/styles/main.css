@@ -377,6 +377,11 @@ body {
 .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
   display: block;
 }
+.flexbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: "space-between" ;
+}
 
 .steps-content {
   min-height: 300px;
