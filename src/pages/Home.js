@@ -129,6 +129,8 @@ function Home() {
     </svg>,
   ];
 
+
+
   const count = [
     {
       today: "Clicks",
@@ -160,64 +162,9 @@ function Home() {
     },
   ];
 
-  const columns = [
-    {
-      title: "Date",
-      dataIndex: "date",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Short URL",
-      dataIndex: "url",
-      filters: [
-        {
-          text: "samagra",
-          value: "https://yaus.xyz/samagra",
-        },
-        {
-          text: "first",
-          value: "https://yaus.xyz/first",
-        },
-        {
-          text: "pass",
-          value: "https://yaus.xyz/pass",
-        },
-        {
-          text: "hack",
-          value: "https://yaus.xyz/hack",
-        },
-      ],
-      onFilter: (value, record) => record.url.startsWith(value),
-      filterSearch: true,
-      width: "35%",
-    },
-    {
-      title: "Views",
-      dataIndex: "views",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Installs",
-      dataIndex: "install",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Clicks",
-      dataIndex: "clicks",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Opens",
-      dataIndex: "open",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Action",
-      dataIndex: "action",
-    },
-  ];
+  // api fetch
 
-  async function action(){
+  async function go(){
     const url='http://localhost:3233/dashboard_table'
   const response=await fetch(url);
   
@@ -226,9 +173,9 @@ function Home() {
   return objectData;
   }
 
-  action();
+  go();
 
-  action().then(objectData=>{
+  go().then(objectData=>{
     const url=objectData.map(
       function (index){
         return index.url;
@@ -293,7 +240,66 @@ function Home() {
     
   }).catch((error)=>{
     console.log('fetch data failed', error);
-  })
+  }) 
+
+  const columns = [
+    {
+      title: "Date",
+      dataIndex: "date",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Short URL",
+      dataIndex: "url",
+      filters: [
+        {
+          text: "samagra",
+          value: "https://yaus.xyz/samagra",
+        },
+        {
+          text: "first",
+          value: "https://yaus.xyz/first",
+        },
+        {
+          text: "pass",
+          value: "https://yaus.xyz/pass",
+        },
+        {
+          text: "hack",
+          value: "https://yaus.xyz/hack",
+        },
+      ],
+      onFilter: (value, record) => record.url.startsWith(value),
+      filterSearch: true,
+      width: "35%",
+    },
+    {
+      title: "Views",
+      dataIndex: "views",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Installs",
+      dataIndex: "install",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Clicks",
+      dataIndex: "clicks",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Opens",
+      dataIndex: "open",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
+    },
+  ];
+
+
 
   
 
@@ -308,11 +314,14 @@ function Home() {
       open: "",
       
       action: (
-        <Button onClick={() => setVisible(true)} type="primary">
+        <Button type="primary">
           Show Statistics
         </Button>
+        
       ),
+    
     },
+    
     {
       date: "",
       name: "My First Link",
