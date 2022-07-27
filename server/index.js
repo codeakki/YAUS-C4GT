@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const data = require("./data");
+const dashboard_table_data= require("./dashboard_table_data");
 const main_dashboard_chart_data =require("./main_dashboard_chart_data")
 
 app.use(cors());
@@ -14,12 +14,14 @@ app.get("/", (req, res) => {
     res.send("Api is running.");
   });
 
-app.get("/dashboard", (req, res) => {
+  // for dashboard table data
+
+app.get("/dashboard_table", (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");
-    res.json(data);
+    res.json(dashboard_table_data);
   });
 
-  
+
 // for the main deshboard chart
 app.get("/main_dashboard_chart", (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");

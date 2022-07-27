@@ -217,15 +217,96 @@ function Home() {
     },
   ];
 
+  async function action(){
+    const url='http://localhost:3233/dashboard_table'
+  const response=await fetch(url);
+  
+  const objectData=await response.json();
+  console.log(objectData);
+  return objectData;
+  }
+
+  action();
+
+  action().then(objectData=>{
+    const url=objectData.map(
+      function (index){
+        return index.url;
+      }
+    )
+  
+    const no_of_views=objectData.map(
+      function (index){
+        return index.no_of_views;
+      }
+    )
+
+    const no_of_opens=objectData.map(
+      function (index){
+        return index.no_of_opens;
+      }
+    )
+
+    const no_of_installs=objectData.map(
+      function (index){
+        return index.no_of_installs;
+      }
+    )
+
+    const no_of_clicks=objectData.map(
+      function (index){
+        return index.no_of_clicks;
+      }
+    )
+
+    const date_created=objectData.map(
+      function (index){
+        return index.date_created;
+      }
+    )
+    for(let i=0;i<data.length;i++){
+      data[i].date=date_created[i];
+    }
+    
+
+
+    for(let i=0;i<data.length;i++){
+      data[i].clicks=no_of_clicks[i];
+    }
+
+    for(let i=0;i<data.length;i++){
+      data[i].install=no_of_installs[i];
+    }
+    
+    for(let i=0;i<data.length;i++){
+      data[i].views=no_of_views[i];
+    }
+
+    for(let i=0;i<data.length;i++){
+      data[i].open=no_of_opens[i];
+    }
+    for(let i=0;i<data.length;i++){
+      const url_data=url[i];
+      data[i].url=<a href="{url_data}">{url_data}</a>;
+    }
+    
+    
+  }).catch((error)=>{
+    console.log('fetch data failed', error);
+  })
+
+  
+
   const data = [
     {
-      date: "2022-07-09",
+      date: "",
       name: "Samagra Website",
-      url: <a href="https://yaus.xyz/samagra">https://yaus.xyz/samagra</a>,
-      views: "2",
-      install: "1",
-      clicks: "10",
-      open: "4",
+      url: <a href=""></a>,
+      views: "",
+      install: "",
+      clicks:"",
+      open: "",
+      
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -233,33 +314,33 @@ function Home() {
       ),
     },
     {
-      date: "2022-06-22",
+      date: "",
       name: "My First Link",
-      url: <a href="https://yaus.xyz/first">https://yaus.xyz/first</a>,
-      views: "12",
-      install: "21",
-      clicks: "5",
-      open: "7",
+      url: <a href=""></a>,
+      views: "",
+      install: "",
+      clicks: "",
+      open: "",
       action: <Button type="primary">Show Statistics</Button>,
     },
     {
-      date: "2022-07-19",
+      date: "",
       name: "Competency Passbook",
-      url: <a href="https://yaus.xyz/pass">https://yaus.xyz/pass</a>,
-      views: "22",
-      install: "11",
-      clicks: "30",
-      open: "3",
+      url: <a href=""></a>,
+      views: "",
+      install: "",
+      clicks: "",
+      open: "",
       action: <Button type="primary">Show Statistics</Button>,
     },
     {
-      date: "2022-07-03",
+      date: "",
       name: "Hackerank",
-      url: <a href="https://yaus.xyz/hack">https://yaus.xyz/hack</a>,
-      views: "21",
-      install: "12",
-      clicks: "12",
-      open: "8",
+      url: <a href=""></a>,
+      views: "",
+      install: "",
+      clicks: "",
+      open: "",
       action: <Button type="primary">Show Statistics</Button>,
     },
   ];
