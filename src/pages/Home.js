@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import ReactApexChart from "react-apexcharts";
 import { MinusOutlined } from "@ant-design/icons";
+import { Line } from '@ant-design/charts';
+import { Pie } from "@ant-design/charts";
 import lineChart from "../components/chart/configs/lineChart";
 
 import {
@@ -65,6 +67,65 @@ function Home() {
     </svg>,
   ];
 
+
+  // pie data 
+
+  const piedata = [
+    {
+      type: 'Week 1',
+      value: 27,
+    },
+    {
+      type: 'Week 2',
+      value: 25,
+    },
+    {
+      type: 'Week 3',
+      value: 18,
+    },
+    {
+      type: 'Week 4',
+      value: 15,
+    },
+    {
+      type: 'Week 5',
+      value: 10,
+    },
+    {
+      type: 'Week 6',
+      value: 5,
+    },
+  ];
+  const config = {
+    appendPadding: 10,
+    data: piedata,
+    angleField: 'value',
+    colorField: 'type',
+    radius: 1,
+    innerRadius: 0.6,
+    label: {
+      type: 'inner',
+      offset: '-50%',
+      content: '{value}',
+      style: {
+        textAlign: 'center',
+        fontSize: 14,
+      },
+    },
+    interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
+    statistic: {
+      title: false,
+      content: {
+        style: {
+          whiteSpace: 'pre-wrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        },
+        content: 'Total:120',
+      },
+    },
+  };
+
   //chart data
 
   const profile = [
@@ -111,6 +172,7 @@ function Home() {
       ></path>
     </svg>,
   ];
+  
   const cart = [
     <svg
       width="22"
@@ -217,85 +279,95 @@ function Home() {
     },
   ];
 
-  async function action(){
-    const url='http://localhost:3233/dashboard_table'
-  const response=await fetch(url);
-  
-  const objectData=await response.json();
-  console.log(objectData);
-  return objectData;
+  async function action() {
+    const url = 'http://localhost:3233/dashboard_table'
+    const response = await fetch(url);
+
+    const objectData = await response.json();
+    console.log(objectData);
+    return objectData;
   }
 
   action();
 
-  action().then(objectData=>{
-    const url=objectData.map(
-      function (index){
+  action().then(objectData => {
+    const url = objectData.map(
+      function (index) {
         return index.url;
       }
     )
-  
-    const no_of_views=objectData.map(
-      function (index){
+    const no_of_views = objectData.map(
+      function (index) {
         return index.no_of_views;
       }
     )
 
-    const no_of_opens=objectData.map(
-      function (index){
+    const no_of_opens = objectData.map(
+      function (index) {
         return index.no_of_opens;
       }
     )
 
-    const no_of_installs=objectData.map(
-      function (index){
+    const no_of_installs = objectData.map(
+      function (index) {
         return index.no_of_installs;
       }
     )
 
-    const no_of_clicks=objectData.map(
-      function (index){
+    const no_of_clicks = objectData.map(
+      function (index) {
         return index.no_of_clicks;
       }
     )
 
-    const date_created=objectData.map(
-      function (index){
+    const date_created = objectData.map(
+      function (index) {
         return index.date_created;
       }
     )
-    for(let i=0;i<data.length;i++){
-      data[i].date=date_created[i];
-    }
-    
-
-
-    for(let i=0;i<data.length;i++){
-      data[i].clicks=no_of_clicks[i];
+    for (let i = 0; i < data.length; i++) {
+      data[i].date = date_created[i];
     }
 
-    for(let i=0;i<data.length;i++){
-      data[i].install=no_of_installs[i];
-    }
-    
-    for(let i=0;i<data.length;i++){
-      data[i].views=no_of_views[i];
+    for (let i = 0; i < data.length; i++) {
+      data[i].clicks = no_of_clicks[i];
     }
 
-    for(let i=0;i<data.length;i++){
-      data[i].open=no_of_opens[i];
+    for (let i = 0; i < data.length; i++) {
+      data[i].install = no_of_installs[i];
     }
-    for(let i=0;i<data.length;i++){
-      const url_data=url[i];
-      data[i].url=<a href="{url_data}">{url_data}</a>;
+
+    for (let i = 0; i < data.length; i++) {
+      data[i].views = no_of_views[i];
     }
-    
-    
-  }).catch((error)=>{
+
+    for (let i = 0; i < data.length; i++) {
+      data[i].open = no_of_opens[i];
+    }
+    for (let i = 0; i < data.length; i++) {
+      const url_data = url[i];
+      data[i].url = <a href="{url_data}">{url_data}</a>;
+    }
+
+
+  }).catch((error) => {
     console.log('fetch data failed', error);
   })
 
-  
+  const myData = [
+    { x: 'Jan', y: 0 },
+    { x: 'Feb', y: 2 },
+    { x: 'Mar', y: 4 },
+    { x: 'Apr', y: 11 },
+    { x: 'May', y: 9 },
+    { x: 'Jun', y: 14 },
+    { x: 'Jul', y: 19 },
+    { x: 'Aug', y: 17 },
+    { x: 'Sep', y: 22 },
+    { x: 'Oct', y: 24 },
+    { x: 'Nov', y: 23 },
+    { x: 'Dec', y: 27 },
+  ];
 
   const data = [
     {
@@ -304,9 +376,9 @@ function Home() {
       url: <a href=""></a>,
       views: "",
       install: "",
-      clicks:"",
+      clicks: "",
       open: "",
-      
+
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -416,75 +488,74 @@ function Home() {
   return (
     <>
       <div>
-        {/* <div className="layout-content">
-          <Row className="rowgap-vbox" gutter={[24, 0]}>
-            {count.map((c, index) => (
-              <Col
-                key={index}
-                xs={24}
-                sm={24}
-                md={12}
-                lg={6}
-                xl={6}
-                className="mb-24"
-              >
-                <Card bordered={false} className="criclebox ">
-                  <div className="number">
-                    <Row align="middle" gutter={[24, 0]}>
-                      <Col xs={18}>
-                        <span>{c.today}</span>
-                        <Title level={3}>
-                          {c.title} <small className={c.bnb}>{c.persent}</small>
-                        </Title>
-                      </Col>
-                      <Col xs={6}>
-                        <div className="icon-box">{c.icon}</div>
-                      </Col>
-                    </Row>
-                  </div>
-                </Card>
-              </Col>
-            ))}
-          </Row>
 
-          <Row gutter={[24, 0]}>
-            <Col xs={24} sm={24} md={12} lg={12} xl={10} className="mb-24">
-              <Card bordered={false} className="criclebox h-full">
-                <Echart />
-              </Card>
-            </Col>
-            <Col xs={24} sm={24} md={12} lg={12} xl={14} className="mb-24">
-              <Card bordered={false} className="criclebox h-full">
-                <LineChart />
-              </Card>
-            </Col>
-          </Row>
-
-          <div>
-            <div>
-            <Search
-              placeholder="Search"
-              onSearch={onSearch}
-              suffix={suffix}
-              enterButton
-              style={{
-                width: 320,
-              }}
-            />
-            </div> */}
         <Space direction="vertical" size={12}>
           <RangePicker />
         </Space>
-        
-        
+
+
         <Modal
-          title="Modal 1000px width"
+          title="Statistics"
           centered
           visible={visible}
           onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
-          width={500}
-        ></Modal>
+          width={1400}
+        >
+          <>
+            <Row className="rowgap-vbox" gutter={[24, 0]}>
+              {count.map((c, index) => (
+                <Col
+                  key={index}
+                  xs={24}
+                  sm={24}
+                  md={12}
+                  lg={6}
+                  xl={6}
+                  className="mb-24"
+                >
+                  <Card bordered={false} className="criclebox ">
+                    <div className="number">
+                      <Row align="middle" gutter={[24, 0]}>
+                        <Col xs={18}>
+                          <span>{c.today}</span>
+                          <Title level={3}>
+                            {c.title} <small className={c.bnb}>{c.persent}</small>
+                          </Title>
+                        </Col>
+                        <Col xs={6}>
+                          <div className="icon-box">{c.icon}</div>
+                        </Col>
+                      </Row>
+                    </div>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+            <br></br>
+            <Row gutter={[24, 0]}>
+              <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
+                <Card title="Line Graph">
+                  <Line
+                    data={myData}
+                    height={500}
+                    xField="x"
+                    yField="y"
+                    point={{ size: 5, shape: 'diamon' }}
+                    color='blue'
+                  />
+                </Card>
+              </Col>
+              <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
+                <Card title="Pie">
+                  <Pie {...config} />
+                </Card>
+              </Col>
+            </Row>
+
+          </>
+
+        </Modal>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -505,7 +576,7 @@ function Home() {
         <NavLink to="/LinkCreate">
           <Button type="primary">Create Your Link</Button>
         </NavLink>
-        
+
         <>
           <div className="linechart">
             <div>
