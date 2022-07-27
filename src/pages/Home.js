@@ -314,7 +314,7 @@ function Home() {
       open: "",
       
       action: (
-        <Button type="primary">
+        <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
         </Button>
         
