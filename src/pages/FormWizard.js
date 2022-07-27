@@ -5,7 +5,7 @@ import { Checkbox, message, Card, Modal, Menu, Avatar, Alert, Upload, Row, Col }
 import axios from 'axios';
 import { CopyOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
-import { LinkPreview } from '@dhaiwat10/react-link-preview';
+// import { LinkPreview } from '@dhaiwat10/react-link-preview';
 import Interaction from "../components/layout/Interaction";
 import {
     LOVE_ICON,
@@ -545,7 +545,7 @@ const FormDemo = () => {
 
                                                 <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title="Akshay" description={"10 hours ago • Algeria"} />
                                                 <br></br>
-                                                <LinkPreview url={state.url} title="Aksjat" width='400px' fallbackImageSrc="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg" explicitImageSrc={state.urlImg} />
+                                                {/* <LinkPreview url={state.url} title="Aksjat" width='400px' fallbackImageSrc="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg" explicitImageSrc={state.urlImg} /> */}
                                                 <br></br>
                                                 <Footer>
                                                     <br></br>
@@ -616,7 +616,7 @@ const FormDemo = () => {
                                     >
                                         <Meta avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />} title="Akshay" description={"10 hours ago • Algeria"} />
                                         <br></br>
-                                        <LinkPreview url={state.url} title="Aksjat" width='400px' fallbackImageSrc="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg" explicitImageSrc={state.urlImg} />
+                                        {/* <LinkPreview url={state.url} title="Aksjat" width='400px' fallbackImageSrc="https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg" explicitImageSrc={state.urlImg} /> */}
                                         <br></br>
                                         <Footer>
                                             <br></br>

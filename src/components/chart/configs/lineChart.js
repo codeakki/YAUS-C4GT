@@ -1,3 +1,44 @@
+async function action(){
+  const url='http://localhost:3233/main_dashboard_chart'
+const response=await fetch(url);
+
+const dataset=await response.json();
+console.log(dataset);
+return dataset;
+}
+
+action();
+
+action().then(dataset=>{
+  const month=dataset.map(
+    function (index){
+      return index.month;
+    }
+  );
+
+  const url_created=dataset.map(
+    function (index){
+      return index.url_created;
+    }
+  )
+
+  console.log(month);
+  console.log(url_created);
+  
+  
+  
+  for(let i=0;i<month.length;i++){
+    lineChart.options.xaxis.categories[i]=month[i];
+  }
+
+
+  for(let i=0;i<url_created.length;i++){
+    lineChart.series[0].data[i]=url_created[i];
+  }
+  
+}).catch((error)=>{
+  console.log('fetch data failed', error);
+})
 const lineChart = {
   series: [
     // {
@@ -7,10 +48,12 @@ const lineChart = {
     // },
     {
       name: "Link Generated",
-      data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+      data: [],
       offsetY: 0,
     },
   ],
+
+  
 
   options: {
     chart: {
@@ -61,20 +104,7 @@ const lineChart = {
           ],
         },
       },
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-      ],
+      categories: ["jkrl","ehnjdkf"],
     },
 
     tooltip: {
