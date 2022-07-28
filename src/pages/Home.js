@@ -369,6 +369,36 @@ function Home() {
     { x: 'Dec', y: 27 },
   ];
 
+// fetching data for the show stats button
+
+async function exe(){
+  // let {customeHashID}='gov32';
+  const url='http://localhost:3233/gov32'
+const response=await fetch(url);
+
+const stats=await response.json();
+console.log(stats);
+return stats;
+}
+
+exe();
+
+exe().then(stats=>{
+  const customeHashID=stats.map(
+    function (index){
+      return index.customeHashID;
+    }
+  );
+
+  console.log(customeHashID);
+
+  
+  
+}).catch((error)=>{
+  console.log('fetch data failed', error);
+})
+
+
   const data = [
     {
       date: "",
@@ -378,6 +408,7 @@ function Home() {
       install: "",
       clicks: "",
       open: "",
+      customeHashID:"",
 
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
@@ -393,7 +424,11 @@ function Home() {
       install: "",
       clicks: "",
       open: "",
-      action: <Button type="primary">Show Statistics</Button>,
+      action: (
+        <Button onClick={() => setVisible(true)} type="primary">
+          Show Statistics
+        </Button>
+      ),
     },
     {
       date: "",
@@ -403,7 +438,11 @@ function Home() {
       install: "",
       clicks: "",
       open: "",
-      action: <Button type="primary">Show Statistics</Button>,
+      action: (
+        <Button onClick={() => setVisible(true)} type="primary">
+          Show Statistics
+        </Button>
+      ),
     },
     {
       date: "",
@@ -413,7 +452,11 @@ function Home() {
       install: "",
       clicks: "",
       open: "",
-      action: <Button type="primary">Show Statistics</Button>,
+      action: (
+        <Button onClick={() => setVisible(true)} type="primary">
+          Show Statistics
+        </Button>
+      ),
     },
   ];
   const suffix = (
@@ -500,7 +543,8 @@ function Home() {
           visible={visible}
           onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
-          width={1400}
+          width={1350}
+          
         >
           <>
             <Row className="rowgap-vbox" gutter={[24, 0]}>
@@ -533,6 +577,8 @@ function Home() {
               ))}
             </Row>
             <br></br>
+
+{/* line graph */}
             <Row gutter={[24, 0]}>
               <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                 <Card title="Line Graph">
@@ -546,6 +592,8 @@ function Home() {
                   />
                 </Card>
               </Col>
+
+{/* pie graph */}
               <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                 <Card title="Pie">
                   <Pie {...config} />
