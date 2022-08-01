@@ -6,7 +6,6 @@ import { DatePicker, Space } from "antd";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import ReactApexChart from "react-apexcharts";
-import { MinusOutlined } from "@ant-design/icons";
 import { Line } from '@ant-design/charts';
 import { Pie } from "@ant-design/charts";
 import lineChart from "../components/chart/configs/lineChart";
@@ -279,80 +278,9 @@ function Home() {
     },
   ];
 
-  async function action() {
-    const url = 'http://localhost:3233/dashboard_table'
-    const response = await fetch(url);
+// fetching data for dashboard table
 
-    const objectData = await response.json();
-    console.log(objectData);
-    return objectData;
-  }
-
-  action();
-
-  action().then(objectData => {
-    const url = objectData.map(
-      function (index) {
-        return index.url;
-      }
-    )
-    const no_of_views = objectData.map(
-      function (index) {
-        return index.no_of_views;
-      }
-    )
-
-    const no_of_opens = objectData.map(
-      function (index) {
-        return index.no_of_opens;
-      }
-    )
-
-    const no_of_installs = objectData.map(
-      function (index) {
-        return index.no_of_installs;
-      }
-    )
-
-    const no_of_clicks = objectData.map(
-      function (index) {
-        return index.no_of_clicks;
-      }
-    )
-
-    const date_created = objectData.map(
-      function (index) {
-        return index.date_created;
-      }
-    )
-    for (let i = 0; i < data.length; i++) {
-      data[i].date = date_created[i];
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      data[i].clicks = no_of_clicks[i];
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      data[i].install = no_of_installs[i];
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      data[i].views = no_of_views[i];
-    }
-
-    for (let i = 0; i < data.length; i++) {
-      data[i].open = no_of_opens[i];
-    }
-    for (let i = 0; i < data.length; i++) {
-      const url_data = url[i];
-      data[i].url = <a href="{url_data}">{url_data}</a>;
-    }
-
-
-  }).catch((error) => {
-    console.log('fetch data failed', error);
-  })
+  
 
   const myData = [
     { x: 'Jan', y: 0 },
@@ -371,33 +299,107 @@ function Home() {
 
 // fetching data for the show stats button
 
-async function exe(){
-  // let {customeHashID}='gov32';
-  const url='http://localhost:3233/gov32'
-const response=await fetch(url);
+// async function exe(){
+//   // let {customeHashID}='gov32';
+//   const url='http://localhost:3233/gov32'
+// const response=await fetch(url);
 
-const stats=await response.json();
-console.log(stats);
-return stats;
+// const stats=await response.json();
+// console.log(stats);
+// return stats;
+// }
+
+// exe();
+
+// exe().then(stats=>{
+//   const customeHashID=stats.map(
+//     function (index){
+//       return index.customeHashID;
+//     }
+//   );
+
+//   console.log(customeHashID);
+
+  
+  
+// }).catch((error)=>{
+//   console.log('fetch data failed', error);
+// })
+
+async function tab() {
+  const url = 'http://localhost:3233/dashboard_table'
+  const response = await fetch(url);
+
+  const objectData = await response.json();
+  console.log(objectData);
+  return objectData;
 }
 
-exe();
+tab();
 
-exe().then(stats=>{
-  const customeHashID=stats.map(
-    function (index){
-      return index.customeHashID;
+tab().then(objectData => {
+  const url = objectData.map(
+    function (index) {
+      return index.url;
     }
-  );
+  )
+  const no_of_views = objectData.map(
+    function (index) {
+      return index.no_of_views;
+    }
+  )
 
-  console.log(customeHashID);
+  const no_of_opens = objectData.map(
+    function (index) {
+      return index.no_of_opens;
+    }
+  )
 
-  
-  
-}).catch((error)=>{
+  const no_of_installs = objectData.map(
+    function (index) {
+      return index.no_of_installs;
+    }
+  )
+
+  const no_of_clicks = objectData.map(
+    function (index) {
+      return index.no_of_clicks;
+    }
+  )
+
+  const date_created = objectData.map(
+    function (index) {
+      return index.date_created;
+    }
+  )
+  for (let i = 0; i < data.length; i++) {
+    data[i].date = date_created[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].clicks = no_of_clicks[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].install = no_of_installs[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].views = no_of_views[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].open = no_of_opens[i];
+  }
+  for (let i = 0; i < data.length; i++) {
+    const url_data = url[i];
+    data[i].url = <a href="{url_data}">{url_data}</a>;
+  }
+
+
+}).catch((error) => {
   console.log('fetch data failed', error);
 })
-
 
   const data = [
     {
@@ -408,7 +410,7 @@ exe().then(stats=>{
       install: "",
       clicks: "",
       open: "",
-      customeHashID:"",
+      
 
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
@@ -459,6 +461,9 @@ exe().then(stats=>{
       ),
     },
   ];
+
+  
+
   const suffix = (
     <AudioOutlined
       style={{
@@ -473,60 +478,6 @@ exe().then(stats=>{
     console.log("params", pagination, filters, sorter, extra);
   };
 
-  const cdata = [
-    {
-      type: "分类一",
-      value: 27,
-    },
-    {
-      type: "分类二",
-      value: 25,
-    },
-    {
-      type: "分类三",
-      value: 18,
-    },
-    {
-      type: "分类四",
-      value: 15,
-    },
-    {
-      type: "分类五",
-      value: 10,
-    },
-    {
-      type: "其他",
-      value: 5,
-    },
-  ];
-
-  const chart_config = {
-    appendPadding: 10,
-    cdata,
-    angleField: "value",
-    colorField: "type",
-    radius: 0.8,
-    label: {
-      type: "outer",
-    },
-    state: {
-      active: {
-        style: {
-          lineWidth: 0,
-          fillOpacity: 0.65,
-        },
-      },
-    },
-
-    interactions: [
-      {
-        type: "element-single-selected",
-      },
-      {
-        type: "element-active",
-      },
-    ],
-  };
 
   return (
     <>
@@ -543,7 +494,7 @@ exe().then(stats=>{
           visible={visible}
           onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
-          width={1350}
+          width={1200}
           
         >
           <>
