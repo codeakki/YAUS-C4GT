@@ -2,15 +2,15 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Modal } from "antd";
 import React from "react";
+import { Steps } from 'intro.js-react';
+import 'intro.js/introjs.css';
 import { DatePicker, Space } from "antd";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import ReactApexChart from "react-apexcharts";
-import { MinusOutlined } from "@ant-design/icons";
 import { Line } from '@ant-design/charts';
 import { Pie } from "@ant-design/charts";
 import lineChart from "../components/chart/configs/lineChart";
-
 import {
   Card,
   Col,
@@ -26,8 +26,6 @@ import {
   Timeline,
   Radio,
 } from "antd";
-import Echart from "../components/chart/EChart";
-import LineChart from "../components/chart/LineChart";
 import { AudioOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
@@ -38,8 +36,27 @@ function Home() {
   const { RangePicker } = DatePicker;
 
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
-
   const [reverse, setReverse] = useState(false);
+
+  const [enabled, setEnabled] = useState(true);
+  const [initialStep, setInitialStep] = useState(0);
+
+  const onExit = () => {
+    setEnabled(false)
+  }
+
+  const steps = [
+    {
+      element: '.linkcreate',
+      intro: 'You can use this button for help',
+      position: 'right',
+    },
+    {
+      element: '.full-width',
+      intro: 'You can use this button to get more information',
+    },
+
+  ];
 
   const dollor = [
     <svg
@@ -172,7 +189,7 @@ function Home() {
       ></path>
     </svg>,
   ];
-  
+
   const cart = [
     <svg
       width="22"
@@ -369,34 +386,34 @@ function Home() {
     { x: 'Dec', y: 27 },
   ];
 
-// fetching data for the show stats button
+  // fetching data for the show stats button
 
-async function exe(){
-  // let {customeHashID}='gov32';
-  const url='http://localhost:3233/gov32'
-const response=await fetch(url);
+  async function exe() {
+    // let {customeHashID}='gov32';
+    const url = 'http://localhost:3233/gov32'
+    const response = await fetch(url);
 
-const stats=await response.json();
-console.log(stats);
-return stats;
-}
+    const stats = await response.json();
+    console.log(stats);
+    return stats;
+  }
 
-exe();
+  exe();
 
-exe().then(stats=>{
-  const customeHashID=stats.map(
-    function (index){
-      return index.customeHashID;
-    }
-  );
+  exe().then(stats => {
+    const customeHashID = stats.map(
+      function (index) {
+        return index.customeHashID;
+      }
+    );
 
-  console.log(customeHashID);
+    console.log(customeHashID);
 
-  
-  
-}).catch((error)=>{
-  console.log('fetch data failed', error);
-})
+
+
+  }).catch((error) => {
+    console.log('fetch data failed', error);
+  })
 
 
   const data = [
@@ -408,7 +425,7 @@ exe().then(stats=>{
       install: "",
       clicks: "",
       open: "",
-      customeHashID:"",
+      customeHashID: "",
 
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
@@ -530,7 +547,15 @@ exe().then(stats=>{
 
   return (
     <>
-      <div>
+
+
+      <Steps
+        enabled={enabled}
+        steps={steps}
+        initialStep={initialStep}
+        onExit={onExit}
+      />
+      <div class="main">
 
         <Space direction="vertical" size={12}>
           <RangePicker />
@@ -544,7 +569,7 @@ exe().then(stats=>{
           onOk={() => setVisible(false)}
           onCancel={() => setVisible(false)}
           width={1350}
-          
+
         >
           <>
             <Row className="rowgap-vbox" gutter={[24, 0]}>
@@ -578,7 +603,7 @@ exe().then(stats=>{
             </Row>
             <br></br>
 
-{/* line graph */}
+            {/* line graph */}
             <Row gutter={[24, 0]}>
               <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                 <Card title="Line Graph">
@@ -593,7 +618,7 @@ exe().then(stats=>{
                 </Card>
               </Col>
 
-{/* pie graph */}
+              {/* pie graph */}
               <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
                 <Card title="Pie">
                   <Pie {...config} />
@@ -621,7 +646,8 @@ exe().then(stats=>{
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;
-        <NavLink to="/LinkCreate">
+
+        <NavLink to="/LinkCreate" className="linkcreate">
           <Button type="primary">Create Your Link</Button>
         </NavLink>
 
@@ -629,15 +655,6 @@ exe().then(stats=>{
           <div className="linechart">
             <div>
               <Title level={5}> Links Generated Till Now </Title>
-              {/* <Paragraph className="lastweek">
-            than last week <span className="bnb2">+30%</span>
-          </Paragraph> */}
-            </div>
-            <div className="sales">
-              <ul>
-                {/* <li>{<MinusOutlined />} Traffic</li>
-            <li>{<MinusOutlined />} Clicks</li> */}
-              </ul>
             </div>
           </div>
           <ReactApexChart
@@ -654,8 +671,6 @@ exe().then(stats=>{
         <Table columns={columns} dataSource={data} onChange={onChange1} />;
       </div>
 
-      {/* </div>
-      </div> */}
     </>
   );
 }
