@@ -118,34 +118,102 @@ const columns = [
     sorter: (a, b) => a.age - b.age,
   },
 ];
+
+async function manager() {
+  const url = 'http://localhost:3233/link_manager_data'
+  const response = await fetch(url);
+
+  const manager_data = await response.json();
+  console.log(manager_data);
+  return manager_data;
+}
+
+manager();
+
+manager().then(manager_data => {
+  const url = manager_data.map(
+    function (index) {
+      return index.url;
+    }
+  )
+
+  const no_of_clicks = manager_data.map(
+    function (index) {
+      return index.no_of_clicks;
+    }
+  )
+
+  const no_of_opens = manager_data.map(
+    function (index) {
+      return index.no_of_opens;
+    }
+  )
+
+  const title = manager_data.map(
+    function (index) {
+      return index.title;
+    }
+  )
+
+  
+
+  const date_created = manager_data.map(
+    function (index) {
+      return index.date_created;
+    }
+  )
+  for (let i = 0; i < data.length; i++) {
+    data[i].date = date_created[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].clicks = no_of_clicks[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+   data[i].open = no_of_opens[i];
+  }
+  for (let i = 0; i < data.length; i++) {
+    const url_data = url[i];
+    data[i].url = <a href="{url_data}">{url_data}</a>;
+  }
+
+  for(let i=0; i<data.length;i++){
+    data[i].name=title[i];
+  }
+
+}).catch((error) => {
+  console.log('fetch data failed', error);
+})
+
 const data = [
   {
-    date:"2022-07-09",
-    name:"Samagra Website",
-    url:<a href="https://yaus.xyz/samagra">https://yaus.xyz/samagra</a>,
-    clicks:"10",
-    open:"4"
+    date:"",
+    name:"",
+    url:<a href=""></a>,
+    clicks:"",
+    open:""
   },
   {
-    date:"2022-06-22",
-    name:"My First Link",
-    url:<a href="https://yaus.xyz/first">https://yaus.xyz/first</a>,
-    clicks:"5",
-    open:"7"
+    date:"",
+    name:"",
+    url:<a href=""></a>,
+    clicks:"",
+    open:""
   },
   {
-    date:"2022-07-19",
-    name:"Competency Passbook",
-    url:<a href="https://yaus.xyz/pass">https://yaus.xyz/pass</a>,
-    clicks:"30",
-    open:"3"
+    date:"",
+    name:"",
+    url:<a href=""></a>,
+    clicks:"",
+    open:""
   },
   {
-    date:"2022-07-03",
-    name:"Hackerank",
-    url:<a href="https://yaus.xyz/hack">https://yaus.xyz/hack</a>,
-    clicks:"12",
-    open:"8"
+    date:"",
+    name:"",
+    url:<a href=""></a>,
+    clicks:"",
+    open:""
   },
 ];
 

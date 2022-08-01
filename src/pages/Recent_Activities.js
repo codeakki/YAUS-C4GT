@@ -170,34 +170,101 @@ const columns = [
   
  
 ];
+
+async function recent() {
+  const url = 'http://localhost:3233/recent_activity_data'
+  const response = await fetch(url);
+
+  const recent_data = await response.json();
+  console.log(recent_data);
+  return recent_data;
+}
+
+recent();
+
+recent().then(recent_data => {
+  const activity= recent_data.map(
+    function (index) {
+      return index.activity;
+    }
+  )
+
+  const name = recent_data.map(
+    function (index) {
+      return index.name;
+    }
+  )
+
+  const email = recent_data.map(
+    function (index) {
+      return index.email;
+    }
+  )
+
+  const title = recent_data.map(
+    function (index) {
+      return index.title;
+    }
+  )
+
+  
+
+  const date_created = recent_data.map(
+    function (index) {
+      return index.date_created;
+    }
+  )
+  for (let i = 0; i < data.length; i++) {
+    data[i].date = date_created[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    data[i].name= name[i];
+  }
+
+  for (let i = 0; i < data.length; i++) {
+   data[i].email = email[i];
+  }
+  for (let i = 0; i < data.length; i++) {
+    const url_data = activity[i];
+    data[i].url = <a href="{url_data}">{url_data}</a>;
+  }
+
+  for(let i=0; i<data.length;i++){
+    data[i].org=title[i];
+  }
+
+}).catch((error) => {
+  console.log('fetch data failed', error);
+})
 const data = [
   {
-    date:"2022-07-09",
-    org:"Samagra Website",
-    url:<a href="https://yaus.xyz/samagra">https://yaus.xyz/samagra</a>,
-    name:"Kanika",
-    email:"kanikagola26@gmail.com"
+    date:"",
+    org:"",
+    url:<a href=""></a>,
+    name:"",
+    email:""
   },
   {
-    date:"2022-06-22",
-    org:"My First Link",
-    url:<a href="https://yaus.xyz/first">https://yaus.xyz/first</a>,
-    name:"Akshay",
-    email:"akshay@gmail.com"
+    date:"",
+    org:"",
+    url:<a href=""></a>,
+    name:"",
+    email:""
   },
   {
-    date:"2022-07-19",
-    org:"Competency Passbook",
-    url:<a href="https://yaus.xyz/pass">https://yaus.xyz/pass</a>,
-    name:"Chakshu",
-    email:"chakshu@gmail.com"
+    date:"",
+    org:"",
+    url:<a href=""></a>,
+    name:"",
+    email:""
   },
   {
-    date:"2022-07-03",
-    org:"Hackerank",
-    url:<a href="https://yaus.xyz/hack">https://yaus.xyz/hack</a>,
-    name:"Manav",
-    email:"manav@gmail.com"
+    date:"",
+    org:"",
+    url:<a href=""></a>,
+    name:"",
+    email:""
   },
 ];
 
