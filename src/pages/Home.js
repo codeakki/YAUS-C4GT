@@ -5,8 +5,6 @@ import React from "react";
 import { DatePicker, Space } from "antd";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { Steps } from 'intro.js-react';
-import 'intro.js/introjs.css';
 import ReactApexChart from "react-apexcharts";
 import { Line } from '@ant-design/charts';
 import { Pie } from "@ant-design/charts";
@@ -39,31 +37,8 @@ function Home() {
   const { RangePicker } = DatePicker;
 
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
-  const [enabled, setEnabled] = useState(true);
-  const [initialStep, setInitialStep] = useState(0);
+
   const [reverse, setReverse] = useState(false);
-
-  const onExit = () => {
-    setEnabled(false)
-  }
-
-  const steps = [
-    {
-      element: '.linkcreate',
-      intro: 'You can use this button for Creating Your Own Shorten URL ',
-      position: 'right',
-    },
-    {
-      element: '.full-width',
-      intro: 'You can see the stats of your Link Generated',
-      position: 'down',
-    },
-    {
-      element: '.linkshow',
-      intro: 'You can see detailed stats of each Link',
-    },
-
-  ];
 
   const dollor = [
     <svg
@@ -506,12 +481,6 @@ tab().then(objectData => {
 
   return (
     <>
-     <Steps
-        enabled={enabled}
-        steps={steps}
-        initialStep={initialStep}
-        onExit={onExit}
-      />
       <div>
 
         <Space direction="vertical" size={12}>
@@ -603,7 +572,7 @@ tab().then(objectData => {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;
-        <NavLink to="/LinkCreate"  className="linkcreate">
+        <NavLink to="/LinkCreate">
           <Button type="primary">Create Your Link</Button>
         </NavLink>
 
@@ -633,7 +602,7 @@ tab().then(objectData => {
         </>
         <br></br>
         <br></br>
-        <Table  className="linkshow" columns={columns} dataSource={data} onChange={onChange1} />;
+        <Table columns={columns} dataSource={data} onChange={onChange1} />;
       </div>
 
       {/* </div>
