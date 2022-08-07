@@ -7,6 +7,7 @@ import { CopyOutlined } from '@ant-design/icons';
 import { useHistory } from "react-router-dom";
 import { LinkPreview } from '@dhaiwat10/react-link-preview';
 import Interaction from "../components/layout/Interaction";
+import { nanoid } from 'nanoid';
 import {
     LOVE_ICON,
     COMMENT_ICON,
@@ -90,10 +91,10 @@ const FormDemo = () => {
     };
 
     const [state, setState] = useState({
-        user: '0fe6ff38-fc46-11ec-b939-0242ac120001',
+        userID: '0fe6ff38-fc46-11ec-b939-0242ac120001',
         url: '',
         project: '0fe6ff38-fc46-11ec-b939-0242ac120002',
-        customHashId: '',
+        customHashId: nanoid(6),
         titleImage: '',
         urlImg: '',
         description: '',
@@ -103,15 +104,14 @@ const FormDemo = () => {
             customHashId: state.customHashId,
             project: state.project,
             url: state.url,
-            user: state.user
+            userID: state.userID
         };
         const headers = {
             'Content-Type': 'application/json',
             'Authorization': 'JWT fefege...',
             "Access-Control-Allow-Origin": "*"
         }
-        console.log(userData);
-        /*  console.log(baseUrl+{customHashId});   */
+        console.log(userData);  
         axios.post(`${baseUrl}/register`, userData, { headers: headers }).then((response) => {
             console.log(response.status);
             console.log(response.data.token);
@@ -180,7 +180,7 @@ const FormDemo = () => {
                 return (<>
                     <h5 style={{ width: 500, marginTop: "10px" }}>Please provide a valid image file url from the web ending in .png, .jpg, or .jpeg or upload your own valid image.</h5>
                     <Upload {...props}>
-                        <Button>
+                        <Button type='dashed'>
                             Click to Upload
                         </Button>
                     </Upload>

@@ -3,10 +3,13 @@ import { NavLink } from "react-router-dom";
 import { Modal } from "antd";
 import React from "react";
 import { DatePicker, Space } from "antd";
+import { OnBoarding } from 'antd-onboarding';
+import 'antd-onboarding/assets/index.css';
+import 'antd/dist/antd.css';
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { Steps } from 'intro.js-react';
-import 'intro.js/introjs.css';
+/* import { Steps } from 'intro.js-react';
+import 'intro.js/introjs.css'; */
 import ReactApexChart from "react-apexcharts";
 import { Line } from '@ant-design/charts';
 import { Pie } from "@ant-design/charts";
@@ -42,29 +45,29 @@ function Home() {
   const [reverse, setReverse] = useState(false);
   const [enabled, setEnabled] = useState(true);
   const [initialStep, setInitialStep] = useState(0);
-  
+
 
   const onExit = () => {
     setEnabled(false)
   }
-  
-  const steps = [
-    {
-      element: '.linkcreate',
-      intro: 'You can use this button for Creating Your Own Shorten URL ',
-      position: 'right',
-    },
-    {
-      element: '.full-width',
-      intro: 'You can see the stats of your Link Generated',
-      position: 'down',
-    },
-    {
-      element: '.linkshow',
-      intro: 'You can see detailed stats of each Link',
-    },
 
-  ];
+  /*  const steps = [
+     {
+       element: '.linkcreate',
+       intro: 'You can use this button for Creating Your Own Shorten URL ',
+       position: 'right',
+     },
+     {
+       element: '.full-width',
+       intro: 'You can see the stats of your Link Generated',
+       position: 'down',
+     },
+     {
+       element: '.linkshow',
+       intro: 'You can see detailed stats of each Link',
+     },
+ 
+   ]; */
 
   const dollor = [
     <svg
@@ -307,7 +310,6 @@ function Home() {
   // fetching data for dashboard table
 
 
-
   const myData = [
     { x: 'Jan', y: 0 },
     { x: 'Feb', y: 2 },
@@ -500,21 +502,21 @@ function Home() {
   );
   const onSearch = (value) => console.log(value);
 
-  const onChange1 = (pagination, filters, sorter, extra) => {
-    console.log("params", pagination, filters, sorter, extra);
+  const onChange1 = (pagination, filters, sorter, extra,data) => {
+    console.log("params", pagination, filters, sorter, extra,data);
   };
 
 
   return (
     <>
 
-      <Steps
+      {/*  <Steps
         enabled={enabled}
         steps={steps}
         initialStep={initialStep}
         onExit={onExit}
-      />
-      <div>
+      /> */}
+      <div class="MyApp">
 
         <Space direction="vertical" size={12}>
           <RangePicker />
@@ -610,17 +612,13 @@ function Home() {
         </NavLink>
 
         <>
-          <div className="linechart">
+          <div id="linechart">
             <div>
               <Title level={5}> Links Generated Till Now </Title>
-              {/* <Paragraph className="lastweek">
-            than last week <span className="bnb2">+30%</span>
-          </Paragraph> */}
+
             </div>
             <div className="sales">
               <ul>
-                {/* <li>{<MinusOutlined />} Traffic</li>
-            <li>{<MinusOutlined />} Clicks</li> */}
               </ul>
             </div>
           </div>
@@ -636,6 +634,32 @@ function Home() {
         <br></br>
         <br></br>
         <Table className="linkshow" columns={columns} dataSource={data} onChange={onChange1} />;
+        <OnBoarding
+          isShowMask={true}
+          steps={
+            [
+              {
+                selector: () => {
+                  return document.getElementById('linkcreate');
+                },
+                renderContent: () => {
+                  return (
+                    <div>This is my name!</div>
+                  );
+                }
+              },
+              {
+                selector: () => {
+                  return document.getElementById('linechart');
+                },
+                renderContent: () => {
+                  return (
+                    <div>This is my age!</div>
+                  );
+                }
+              }
+            ]
+          } />
       </div>
 
       {/* </div>

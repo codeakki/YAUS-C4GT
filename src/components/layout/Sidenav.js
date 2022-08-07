@@ -85,7 +85,7 @@ function Sidenav({ color }) {
       ></path>
     </svg>,
   ];
-  const FormWizard= [
+  const FormWizard = [
     <svg
       width="20"
       height="20"
@@ -107,7 +107,28 @@ function Sidenav({ color }) {
     </svg>,
   ];
 
-  const Link_Manager= [
+  const Link_Manager = [
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      key={0}
+    >
+      <path
+        d="M4 4C2.89543 4 2 4.89543 2 6V7H18V6C18 4.89543 17.1046 4 16 4H4Z"
+        fill={color}
+      ></path>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18 9H2V14C2 15.1046 2.89543 16 4 16H16C17.1046 16 18 15.1046 18 14V9ZM4 13C4 12.4477 4.44772 12 5 12H6C6.55228 12 7 12.4477 7 13C7 13.5523 6.55228 14 6 14H5C4.44772 14 4 13.5523 4 13ZM9 12C8.44772 12 8 12.4477 8 13C8 13.5523 8.44772 14 9 14H10C10.5523 14 11 13.5523 11 13C11 12.4477 10.5523 12 10 12H9Z"
+        fill={color}
+      ></path>
+    </svg>,
+  ];
+  const Bulk_Link = [
     <svg
       width="20"
       height="20"
@@ -129,7 +150,7 @@ function Sidenav({ color }) {
     </svg>,
   ];
 
-  const Recent_Activities= [
+  const Recent_Activities = [
     <svg
       width="20"
       height="20"
@@ -233,29 +254,29 @@ function Sidenav({ color }) {
       </div>
       <hr />
       <Menu theme="light" mode="inline">
-      {
-            localStorage.getItem("user-info")?
-            <> 
-            <Menu.Item key="1">
-          
-            <NavLink to="/dashboard">
-              <span
-                className="icon"
-                style={{
-                  background: page === "dashboard" ? color : "",
-                }}
-              >
-                {dashboard}
-              </span>
-  
-  
-             
-  
-              <span className="label">Dashboard</span>
-            </NavLink>
-          </Menu.Item>
-          
-         {/*  <Menu.Item key="2">
+        {
+          localStorage.getItem("user-info") ?
+            <>
+              <Menu.Item key="1">
+
+                <NavLink to="/dashboard">
+                  <span
+                    className="icon"
+                    style={{
+                      background: page === "dashboard" ? color : "",
+                    }}
+                  >
+                    {dashboard}
+                  </span>
+
+
+
+
+                  <span className="label">Dashboard</span>
+                </NavLink>
+              </Menu.Item>
+
+              {/*  <Menu.Item key="2">
           <NavLink to="/tables">
             <span
               className="icon"
@@ -268,8 +289,8 @@ function Sidenav({ color }) {
             <span className="label">Tables</span>
           </NavLink>
         </Menu.Item> */}
-        
-       {/*  <Menu.Item key="3">
+
+              {/*  <Menu.Item key="3">
           <NavLink to="/billing">
             <span
               className="icon"
@@ -283,52 +304,65 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item> */}
 
-        <Menu.Item key="4">
-          <NavLink to="/LinkCreate">
-            <span
-              className="icon"
-              style={{
-                background: page === "rtl" ? color : "",
-              }}
-            >
-              {FormWizard}
-            </span>
-            <span className="label">Link Create</span>
-          </NavLink>
-        </Menu.Item>
+              <Menu.Item key="4">
+                <NavLink to="/LinkCreate">
+                  <span
+                    className="icon"
+                    style={{
+                      background: page === "rtl" ? color : "",
+                    }}
+                  >
+                    {FormWizard}
+                  </span>
+                  <span className="label">Link Create</span>
+                </NavLink>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <NavLink to="/Bulk">
+                  <span
+                    className="icon"
+                    style={{
+                      background: page === "rtl" ? color : "",
+                    }}
+                  >
+                    {FormWizard}
+                  </span>
+                  <span className="label">Bulk Link</span>
+                </NavLink>
+              </Menu.Item>
 
-        <Menu.Item key="4">
-          <NavLink to="/linkmanager">
-            <span
-              className="icon"
-              style={{
-                background: page === "rtl" ? color : "",
-              }}
-            >
-              {Link_Manager}
-            </span>
-            <span className="label">Link Manager</span>
-          </NavLink>
-        </Menu.Item>
+              <Menu.Item key="5">
+                <NavLink to="/linkmanager">
+                  <span
+                    className="icon"
+                    style={{
+                      background: page === "rtl" ? color : "",
+                    }}
+                  >
+                    {Link_Manager}
+                  </span>
+                  <span className="label">Link Manager</span>
+                </NavLink>
+              </Menu.Item>
 
-        <Menu.Item key="4">
-          <NavLink to="/recent">
-            <span
-              className="icon"
-              style={{
-                background: page === "rtl" ? color : "",
-              }}
-            >
-              {Recent_Activities}
-            </span>
-            <span className="label">Recent Activities</span>
-          </NavLink>
-        </Menu.Item>
+              <Menu.Item key="4">
+                <NavLink to="/recent">
+                  <span
+                    className="icon"
+                    style={{
+                      background: page === "rtl" ? color : "",
+                    }}
+                  >
+                    {Recent_Activities}
+                  </span>
+                  <span className="label">Recent Activities</span>
+                </NavLink>
+              </Menu.Item>
 
 
-        </>
-        :<>
-       {/*  <Menu.Item key="6">
+            </>
+            : <>
+              {/*  <Menu.Item key="6">
           <NavLink to="/profile">
             <span
               className="icon"
@@ -342,26 +376,26 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item> */}
 
-        <Menu.Item key="7">
-          <NavLink to="/sign-in">
-            <span className="icon">{signin}</span>
-            <span className="label">Sign In</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item key="8">
-          <NavLink to="/sign-up">
-            <span className="icon">{signup}</span>
-            <span className="label">Sign Up</span>
-          </NavLink>
-        </Menu.Item>
-        </>
-          }
-       
-       {/* <Menu.Item className="menu-item-header" key="5">
+              <Menu.Item key="7">
+                <NavLink to="/sign-in">
+                  <span className="icon">{signin}</span>
+                  <span className="label">Sign In</span>
+                </NavLink>
+              </Menu.Item>
+              <Menu.Item key="8">
+                <NavLink to="/sign-up">
+                  <span className="icon">{signup}</span>
+                  <span className="label">Sign Up</span>
+                </NavLink>
+              </Menu.Item>
+            </>
+        }
+
+        {/* <Menu.Item className="menu-item-header" key="5">
           Account Pages
         </Menu.Item>
          */}
-        
+
       </Menu>
       {/* <div className="aside-footer">
         <div

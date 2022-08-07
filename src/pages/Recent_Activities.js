@@ -1,8 +1,9 @@
-import { Table, Button} from 'antd';
-import React ,{useState} from 'react'
+import { Table, Button } from 'antd';
+import React, { useState } from 'react'
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
 import { NavLink, useLocation } from "react-router-dom";
+import { Excel } from "antd-table-saveas-excel";
 const { Search } = Input;
 const suffix = (
   <AudioOutlined
@@ -14,43 +15,52 @@ const suffix = (
 );
 const onSearch = (value) => console.log(value);
 
+const handleClick = () => {
+  const excel = new Excel();
+  excel
+    .addSheet("test")
+    .addColumns(columns)
+    .addDataSource(data, {
+      str2Percent: true
+    })
+    .saveAs("Excel.xlsx");
+};
 
-
-const App = () => 
+const App = () =>
 (
-    
-<>
+  <>
+    <NavLink to="/LinkCreate"><Button type="primary">
+      Create Your Link
+    </Button>
+    </NavLink>
+    <br></br>
+    <br></br>
+    <br></br>
 
-<NavLink to="/LinkCreate"><Button type="primary">
-        Create Your Link
-      </Button>
-</NavLink>
-      <br></br>
-      <br></br>
-      <br></br>
-      
     <Search
       placeholder="Search"
       onSearch={onSearch}
       suffix={suffix}
-      enterButton 
+      enterButton
       style={{
         width: 320,
       }}
     />
+    <h2>Start editing to see some magic happen!</h2>
+    <button onClick={handleClick}>Export</button>
     <br></br>
     <br></br>
-<Table columns={columns} dataSource={data} onChange={onChange} />;
+    <Table columns={columns} dataSource={data} onChange={onChange} />;
 
-</>
+  </>
 )
 
 const columns = [
-    {
-        title: 'Created',
-        dataIndex: 'date',
-        sorter: (a, b) => a.age - b.age,
-      },
+  {
+    title: 'Created',
+    dataIndex: 'date',
+    sorter: (a, b) => a.age - b.age,
+  },
   {
     title: 'Marketing Title',
     dataIndex: 'org',
@@ -62,17 +72,17 @@ const columns = [
       {
         text: 'My First Link',
         value: 'My First Link',
-        
+
       },
       {
         text: 'Competency Passbook',
         value: 'Competency Passbook',
-       
+
       },
       {
         text: 'Hackerank',
         value: 'Hackerank',
-       
+
       },
     ],
     filterMode: 'tree',
@@ -80,7 +90,7 @@ const columns = [
     onFilter: (value, record) => record.name.includes(value),
     width: '30%',
   },
-  
+
   {
     title: 'Activities',
     dataIndex: 'url',
@@ -88,7 +98,7 @@ const columns = [
       {
         text: 'samagra',
         value: 'https://yaus.xyz/samagra',
-        
+
       },
       {
         text: 'first',
@@ -119,17 +129,17 @@ const columns = [
       {
         text: 'Akshay',
         value: 'akshay',
-        
+
       },
       {
         text: 'Chakshu',
         value: 'chakshu',
-       
+
       },
       {
         text: 'Manav',
         value: 'manav',
-       
+
       },
     ],
     filterMode: 'tree',
@@ -149,17 +159,17 @@ const columns = [
       {
         text: 'akshay@gmail.com',
         value: 'akshay@gmail.com',
-        
+
       },
       {
         text: 'chakshu@gmail.com',
         value: 'chakshu@gmail.com',
-       
+
       },
       {
         text: 'manav@gmail.com',
         value: 'manav@gmail.com',
-       
+
       },
     ],
     filterMode: 'tree',
@@ -167,8 +177,8 @@ const columns = [
     onFilter: (value, record) => record.name.includes(value),
     width: '30%',
   },
-  
- 
+
+
 ];
 
 async function recent() {
@@ -183,7 +193,7 @@ async function recent() {
 recent();
 
 recent().then(recent_data => {
-  const activity= recent_data.map(
+  const activity = recent_data.map(
     function (index) {
       return index.activity;
     }
@@ -207,8 +217,6 @@ recent().then(recent_data => {
     }
   )
 
-  
-
   const date_created = recent_data.map(
     function (index) {
       return index.date_created;
@@ -219,19 +227,19 @@ recent().then(recent_data => {
   }
 
   for (let i = 0; i < data.length; i++) {
-    data[i].name= name[i];
+    data[i].name = name[i];
   }
 
   for (let i = 0; i < data.length; i++) {
-   data[i].email = email[i];
+    data[i].email = email[i];
   }
   for (let i = 0; i < data.length; i++) {
     const url_data = activity[i];
     data[i].url = <a href="{url_data}">{url_data}</a>;
   }
 
-  for(let i=0; i<data.length;i++){
-    data[i].org=title[i];
+  for (let i = 0; i < data.length; i++) {
+    data[i].org = title[i];
   }
 
 }).catch((error) => {
@@ -239,32 +247,32 @@ recent().then(recent_data => {
 })
 const data = [
   {
-    date:"",
-    org:"",
-    url:<a href=""></a>,
-    name:"",
-    email:""
+    date: "",
+    org: "",
+    url: <a href=""></a>,
+    name: "",
+    email: ""
   },
   {
-    date:"",
-    org:"",
-    url:<a href=""></a>,
-    name:"",
-    email:""
+    date: "",
+    org: "",
+    url: <a href=""></a>,
+    name: "",
+    email: ""
   },
   {
-    date:"",
-    org:"",
-    url:<a href=""></a>,
-    name:"",
-    email:""
+    date: "",
+    org: "",
+    url: <a href=""></a>,
+    name: "",
+    email: ""
   },
   {
-    date:"",
-    org:"",
-    url:<a href=""></a>,
-    name:"",
-    email:""
+    date: "",
+    org: "",
+    url: <a href=""></a>,
+    name: "",
+    email: ""
   },
 ];
 
@@ -273,10 +281,10 @@ const onChange = (pagination, filters, sorter, extra) => {
 };
 
 
-    
-      
-      
-    
-  
+
+
+
+
+
 
 export default App;

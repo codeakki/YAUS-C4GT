@@ -1,5 +1,5 @@
-import { Table, Button} from 'antd';
-import React ,{useState} from 'react'
+import { Table, Button } from 'antd';
+import React, { useState } from 'react'
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
 import { NavLink, useLocation } from "react-router-dom";
@@ -16,41 +16,40 @@ const onSearch = (value) => console.log(value);
 
 
 
-const App = () => 
+const App = () =>
 (
-    
-<>
+  <>
+  
+    <NavLink to="/LinkCreate"><Button type="primary">
+      Create Your Link
+    </Button>
+    </NavLink>
+    <br></br>
+    <br></br>
+    <br></br>
 
-<NavLink to="/LinkCreate"><Button type="primary">
-        Create Your Link
-      </Button>
-</NavLink>
-      <br></br>
-      <br></br>
-      <br></br>
-      
     <Search
       placeholder="Search"
       onSearch={onSearch}
       suffix={suffix}
-      enterButton 
+      enterButton
       style={{
         width: 320,
       }}
     />
     <br></br>
     <br></br>
-<Table columns={columns} dataSource={data} onChange={onChange} />;
+    <Table columns={columns} dataSource={data} onChange={onChange} />;
 
-</>
+  </>
 )
 
 const columns = [
-    {
-        title: 'Created',
-        dataIndex: 'date',
-        sorter: (a, b) => a.age - b.age,
-      },
+  {
+    title: 'Created',
+    dataIndex: 'date',
+    sorter: (a, b) => a.age - b.age,
+  },
   {
     title: 'Marketing Title',
     dataIndex: 'name',
@@ -62,17 +61,17 @@ const columns = [
       {
         text: 'My First Link',
         value: 'My First Link',
-        
+
       },
       {
         text: 'Competency Passbook',
         value: 'Competency Passbook',
-       
+
       },
       {
         text: 'Hackerank',
         value: 'Hackerank',
-       
+
       },
     ],
     filterMode: 'tree',
@@ -80,7 +79,7 @@ const columns = [
     onFilter: (value, record) => record.name.includes(value),
     width: '30%',
   },
-  
+
   {
     title: 'Short URL',
     dataIndex: 'url',
@@ -88,7 +87,7 @@ const columns = [
       {
         text: 'samagra',
         value: 'https://yaus.xyz/samagra',
-        
+
       },
       {
         text: 'first',
@@ -155,7 +154,7 @@ manager().then(manager_data => {
     }
   )
 
-  
+
 
   const date_created = manager_data.map(
     function (index) {
@@ -171,15 +170,15 @@ manager().then(manager_data => {
   }
 
   for (let i = 0; i < data.length; i++) {
-   data[i].open = no_of_opens[i];
+    data[i].open = no_of_opens[i];
   }
   for (let i = 0; i < data.length; i++) {
     const url_data = url[i];
     data[i].url = <a href="{url_data}">{url_data}</a>;
   }
 
-  for(let i=0; i<data.length;i++){
-    data[i].name=title[i];
+  for (let i = 0; i < data.length; i++) {
+    data[i].name = title[i];
   }
 
 }).catch((error) => {
@@ -188,32 +187,32 @@ manager().then(manager_data => {
 
 const data = [
   {
-    date:"",
-    name:"",
-    url:<a href=""></a>,
-    clicks:"",
-    open:""
+    date: "",
+    name: "",
+    url: <a href=""></a>,
+    clicks: "",
+    open: ""
   },
   {
-    date:"",
-    name:"",
-    url:<a href=""></a>,
-    clicks:"",
-    open:""
+    date: "",
+    name: "",
+    url: <a href=""></a>,
+    clicks: "",
+    open: ""
   },
   {
-    date:"",
-    name:"",
-    url:<a href=""></a>,
-    clicks:"",
-    open:""
+    date: "",
+    name: "",
+    url: <a href=""></a>,
+    clicks: "",
+    open: ""
   },
   {
-    date:"",
-    name:"",
-    url:<a href=""></a>,
-    clicks:"",
-    open:""
+    date: "",
+    name: "",
+    url: <a href=""></a>,
+    clicks: "",
+    open: ""
   },
 ];
 
@@ -222,10 +221,10 @@ const onChange = (pagination, filters, sorter, extra) => {
 };
 
 
-    
-      
-      
-    
-  
+
+
+
+
+
 
 export default App;
