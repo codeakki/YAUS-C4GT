@@ -8,8 +8,6 @@ import 'antd-onboarding/assets/index.css';
 import 'antd/dist/antd.css';
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-/* import { Steps } from 'intro.js-react';
-import 'intro.js/introjs.css'; */
 import ReactApexChart from "react-apexcharts";
 import { Line } from '@ant-design/charts';
 import { Pie } from "@ant-design/charts";
@@ -29,8 +27,7 @@ import {
   Timeline,
   Radio,
 } from "antd";
-import Echart from "../components/chart/EChart";
-import LineChart from "../components/chart/LineChart";
+
 import { AudioOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
@@ -431,13 +428,13 @@ function Home() {
 
   const data = [
     {
-      date: "",
+      date: "2022-07-09",
       name: "Samagra Website",
-      url: <a href=""></a>,
-      views: "",
-      install: "",
-      clicks: "",
-      open: "",
+      url: <a href="https://yaus.xyz/education">https://yaus.xyz/education</a>,
+      views: "82",
+      install: "89",
+      clicks: "35",
+      open: "59",
 
 
       action: (
@@ -447,13 +444,13 @@ function Home() {
       ),
     },
     {
-      date: "",
+      date: "2022-06-22",
       name: "My First Link",
-      url: <a href=""></a>,
-      views: "",
-      install: "",
-      clicks: "",
-      open: "",
+      url: <a href=" https://yaus.xyz/govt"> https://yaus.xyz/govt</a>,
+      views: "28",
+      install: "64",
+      clicks: "33",
+      open: "95",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -461,13 +458,13 @@ function Home() {
       ),
     },
     {
-      date: "",
+      date: "2022-07-19",
       name: "Competency Passbook",
-      url: <a href=""></a>,
-      views: "",
-      install: "",
-      clicks: "",
-      open: "",
+      url: <a href="https://yaus.xyz/design">https://yaus.xyz/design</a>,
+      views: "86",
+      install: "23",
+      clicks: "34",
+      open: "19",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -475,13 +472,13 @@ function Home() {
       ),
     },
     {
-      date: "",
+      date: "2022-07-03",
       name: "Hackerank",
-      url: <a href=""></a>,
-      views: "",
-      install: "",
-      clicks: "",
-      open: "",
+      url: <a href="https://yaus.xyz/create">https://yaus.xyz/create</a>,
+      views: "68",
+      install: "32",
+      clicks: "31",
+      open: "55",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
