@@ -40,7 +40,7 @@ function Main({ children }) {
     } else {
       setPlacement("right");
     }
-  }, [pathname]);
+  }, []);
 
   return (
     <Layout
