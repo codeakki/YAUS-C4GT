@@ -1,13 +1,10 @@
 import React, { useState, useRef } from "react";
 import axios from 'axios';
-import { CopyOutlined } from '@ant-design/icons';
-import { useHistory } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { Table } from "antd";
 import { nanoid } from 'nanoid'
 import { Excel } from "antd-table-saveas-excel";
 import { Form, Steps, Input, Select, Tooltip, Button, Space, Layout } from "antd";
-/* import 'bootstrap/dist/css/bootstrap.css' */
 
 
 

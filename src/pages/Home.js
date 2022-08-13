@@ -6,8 +6,6 @@ import { DatePicker, Space } from "antd";
 import { OnBoarding } from 'antd-onboarding';
 import 'antd-onboarding/assets/index.css';
 import 'antd/dist/antd.css';
-import { useEffect } from "react";
-import ReactDOM from "react-dom";
 import ReactApexChart from "react-apexcharts";
 import { Line } from '@ant-design/charts';
 import { Pie } from "@ant-design/charts";
@@ -17,15 +15,9 @@ import {
   Col,
   Row,
   Typography,
-  Tooltip,
-  Progress,
   Table,
   Input,
-  Upload,
-  message,
   Button,
-  Timeline,
-  Radio,
 } from "antd";
 
 import { AudioOutlined } from "@ant-design/icons";
@@ -48,23 +40,6 @@ function Home() {
     setEnabled(false)
   }
 
-  /*  const steps = [
-     {
-       element: '.linkcreate',
-       intro: 'You can use this button for Creating Your Own Shorten URL ',
-       position: 'right',
-     },
-     {
-       element: '.full-width',
-       intro: 'You can see the stats of your Link Generated',
-       position: 'down',
-     },
-     {
-       element: '.linkshow',
-       intro: 'You can see detailed stats of each Link',
-     },
- 
-   ]; */
 
   const dollor = [
     <svg
@@ -92,8 +67,6 @@ function Home() {
     </svg>,
   ];
 
-
-  // pie data 
 
   const piedata = [
     {
@@ -151,7 +124,6 @@ function Home() {
     },
   };
 
-  //chart data
 
   const profile = [
     <svg
@@ -322,35 +294,6 @@ function Home() {
     { x: 'Dec', y: 27 },
   ];
 
-  // fetching data for the show stats button
-
-  // async function exe(){
-  //   // let {customeHashID}='gov32';
-  //   const url='http://localhost:3233/gov32'
-  // const response=await fetch(url);
-
-  // const stats=await response.json();
-  // console.log(stats);
-  // return stats;
-  // }
-
-  // exe();
-
-  // exe().then(stats=>{
-  //   const customeHashID=stats.map(
-  //     function (index){
-  //       return index.customeHashID;
-  //     }
-  //   );
-
-  //   console.log(customeHashID);
-
-
-
-  // }).catch((error)=>{
-  //   console.log('fetch data failed', error);
-  // })
-
   async function tab() {
     const url = 'http://localhost:3233/dashboard_table'
     const response = await fetch(url);
@@ -432,9 +375,9 @@ function Home() {
       name: "Samagra Website",
       url: <a href="https://yaus.xyz/education">https://yaus.xyz/education</a>,
       views: "82",
-      install: "89",
+      install: "28",
       clicks: "35",
-      open: "59",
+      open: "14",
 
 
       action: (
@@ -448,9 +391,9 @@ function Home() {
       name: "My First Link",
       url: <a href=" https://yaus.xyz/govt"> https://yaus.xyz/govt</a>,
       views: "28",
-      install: "64",
-      clicks: "33",
-      open: "95",
+      install: "14",
+      clicks: "15",
+      open: "10",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -477,8 +420,8 @@ function Home() {
       url: <a href="https://yaus.xyz/create">https://yaus.xyz/create</a>,
       views: "68",
       install: "32",
-      clicks: "31",
-      open: "55",
+      clicks: "38",
+      open: "28",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -506,13 +449,6 @@ function Home() {
 
   return (
     <>
-
-      {/*  <Steps
-        enabled={enabled}
-        steps={steps}
-        initialStep={initialStep}
-        onExit={onExit}
-      /> */}
       <div class="MyApp">
 
         <Space direction="vertical" size={12}>
@@ -605,7 +541,7 @@ function Home() {
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;
         <NavLink to="/LinkCreate" className="linkcreate">
-          <Button type="primary">Create Your Link</Button>
+          <Button type="primary">Create  Link</Button>
         </NavLink>
 
         <>
@@ -658,9 +594,6 @@ function Home() {
             ]
           } />
       </div>
-
-      {/* </div>
-      </div> */}
     </>
   );
 }

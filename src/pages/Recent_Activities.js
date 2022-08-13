@@ -15,16 +15,6 @@ const suffix = (
 );
 const onSearch = (value) => console.log(value);
 
-const handleClick = () => {
-  const excel = new Excel();
-  excel
-    .addSheet("test")
-    .addColumns(columns)
-    .addDataSource(data, {
-      str2Percent: true
-    })
-    .saveAs("Excel.xlsx");
-};
 
 const App = () =>
 (
@@ -47,7 +37,6 @@ const App = () =>
       }}
     />
     <h2>Start editing to see some magic happen!</h2>
-    <button onClick={handleClick}>Export</button>
     <br></br>
     <br></br>
     <Table columns={columns} dataSource={data} onChange={onChange} />;

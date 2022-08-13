@@ -201,11 +201,11 @@ const FormDemo = () => {
     return (
         <div classname="layout-content">
             <Steps current={current}>
-                <Step key={0} title="First Step" />
-                <Step key={1} title="Second Step" />
-                <Step key={2} title="Third Step" />
-                <Step key={3} title="Fourth Step" />
-                <Step key={4} title="Success" />
+                <Step key={0} title="Step 1" />
+                <Step key={1} title="Step 2" />
+                <Step key={2} title="Step3 " />
+                <Step key={3} title="Step 4" />
+                <Step key={4} title="Step 5" />
             </Steps>
             <div style={{ margin: "50px 10px" }}>
                 <Form form={form}
