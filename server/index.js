@@ -60,6 +60,6 @@ app.get("/recent_activity_data", (req, res) => {
 });
 
 
-app.listen(process.env.PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 module.exports = app;

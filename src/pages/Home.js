@@ -71,27 +71,27 @@ function Home() {
   const piedata = [
     {
       type: 'Week 1',
-      value: 27,
+      value: 45,
     },
     {
       type: 'Week 2',
-      value: 25,
+      value: 55,
     },
     {
       type: 'Week 3',
-      value: 18,
+      value: 47,
     },
     {
       type: 'Week 4',
-      value: 15,
+      value: 61,
     },
     {
       type: 'Week 5',
-      value: 10,
+      value: 72,
     },
     {
       type: 'Week 6',
-      value: 5,
+      value: 34,
     },
   ];
   const config = {
@@ -119,7 +119,7 @@ function Home() {
           overflow: 'hidden',
           textOverflow: 'ellipsis',
         },
-        content: 'Total:120',
+        content: 'Total:335',
       },
     },
   };
@@ -191,28 +191,28 @@ function Home() {
   const count = [
     {
       today: "Clicks",
-      title: "14",
+      title: "335",
       persent: "+30%",
       icon: dollor,
       bnb: "bnb2",
     },
     {
       today: "Installs",
-      title: "2",
+      title: "-",
       persent: "+20%",
       icon: profile,
       bnb: "bnb2",
     },
     {
       today: "Open",
-      title: "+12",
+      title: "+144",
       persent: "20%",
       icon: heart,
       bnb: "redtext",
     },
     {
       today: "Views",
-      title: "32",
+      title: "82",
       persent: "10%",
       icon: cart,
       bnb: "bnb2",
@@ -280,18 +280,18 @@ function Home() {
 
 
   const myData = [
-    { x: 'Jan', y: 0 },
-    { x: 'Feb', y: 2 },
-    { x: 'Mar', y: 4 },
-    { x: 'Apr', y: 11 },
-    { x: 'May', y: 9 },
-    { x: 'Jun', y: 14 },
-    { x: 'Jul', y: 19 },
-    { x: 'Aug', y: 17 },
-    { x: 'Sep', y: 22 },
-    { x: 'Oct', y: 24 },
-    { x: 'Nov', y: 23 },
-    { x: 'Dec', y: 27 },
+    { x: 'Jan', y: 45 },
+    { x: 'Feb', y: 42 },
+    { x: 'Mar', y: 53 },
+    { x: 'Apr', y: 62 },
+    { x: 'May', y: 64 },
+    { x: 'Jun', y: 54 },
+    { x: 'Jul', y: 59 },
+    { x: 'Aug', y: 47 },
+    { x: 'Sep', y: 0 },
+    { x: 'Oct', y: 0},
+    { x: 'Nov', y: 0},
+    { x: 'Dec', y: 0},
   ];
 
   async function tab() {
@@ -375,9 +375,9 @@ function Home() {
       name: "Samagra Website",
       url: <a href="https://yaus.xyz/education">https://yaus.xyz/education</a>,
       views: "82",
-      install: "28",
-      clicks: "35",
-      open: "14",
+      install: "-",
+      clicks: "335",
+      open: "144",
 
 
       action: (
@@ -390,10 +390,10 @@ function Home() {
       date: "2022-06-22",
       name: "My First Link",
       url: <a href=" https://yaus.xyz/govt"> https://yaus.xyz/govt</a>,
-      views: "28",
-      install: "14",
-      clicks: "15",
-      open: "10",
+      views: "68",
+      install: "-",
+      clicks: "125",
+      open: "110",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -405,9 +405,9 @@ function Home() {
       name: "Competency Passbook",
       url: <a href="https://yaus.xyz/design">https://yaus.xyz/design</a>,
       views: "86",
-      install: "23",
-      clicks: "34",
-      open: "19",
+      install: "-",
+      clicks: "194",
+      open: "139",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -419,9 +419,9 @@ function Home() {
       name: "Hackerank",
       url: <a href="https://yaus.xyz/create">https://yaus.xyz/create</a>,
       views: "68",
-      install: "32",
-      clicks: "38",
-      open: "28",
+      install: "-",
+      clicks: "168",
+      open: "128",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
