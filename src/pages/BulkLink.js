@@ -25,6 +25,16 @@ function Bulk() {
 
     const columns = [
         {
+            title: "Name",
+            dataIndex: "Name",
+            key: "Name"
+        },
+        {
+            title: "Email Id",
+            dataIndex: "EmailId",
+            key: "EmailId"
+        },
+        {
             title: "URL",
             dataIndex: "Url",
             key: "Url"
