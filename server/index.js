@@ -7,6 +7,7 @@ const main_dashboard_chart_data =require("./main_dashboard_chart_data")
 const url_data =require("./Stats_For_Links")
 const link_manager_data=require("./link_manager_data")
 const recent_activity_data=require("./recent_activity_data")
+require("dotenv").config();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -59,6 +60,6 @@ app.get("/recent_activity_data", (req, res) => {
 });
 
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`Server running on port ${PORT}`));
 
 module.exports = app;
