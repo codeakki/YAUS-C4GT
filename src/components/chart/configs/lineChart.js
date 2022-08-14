@@ -1,6 +1,6 @@
 async function action(){
   const url='http://localhost:3233/main_dashboard_chart'
-const response=await fetch(url);
+  const response= await fetch(url);
 
 const dataset=await response.json();
 console.log(dataset);
