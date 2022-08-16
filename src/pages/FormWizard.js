@@ -593,15 +593,13 @@ const FormDemo = () => {
 
                             <Row gutter={[24, 0]}>
                                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
-                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <Alert message="Naming Link" type="success" showIcon />
                                     <br></br>
-                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <Alert message="Analytics Tags" type="success" showIcon />
                                     <br></br>
-                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <Alert message="Redirect" type="warning" showIcon />
                                     <br></br>
-                                    <Alert message="Success Tips" type="success" showIcon />
-                                    <br></br>
-                                    <Alert message="Success Tips" type="success" showIcon />
+                                    <Alert message="Social Media tags" type="success" showIcon />
 
                                 </Col>
                                 <Col xs={24} sm={24} md={12} lg={12} xl={12} className="mb-24">
