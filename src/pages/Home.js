@@ -466,6 +466,7 @@ function Home() {
 
         >
           <>
+          <div> <Card bordered={true}><h3> https://yaus.xyz/education </h3></Card></div>
             <Row className="rowgap-vbox" gutter={[24, 0]}>
               {count.map((c, index) => (
                 <Col
