@@ -257,7 +257,7 @@ function SignUp() {
                     { required: true, message: "Please input your password!" },
                   ]}
                 >
-                  <Input value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
+                  <Input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
                 </Form.Item>
 
                 <Form.Item name="remember" valuePropName="checked">
