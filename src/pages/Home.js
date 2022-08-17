@@ -371,9 +371,9 @@ function Home() {
 
   const data = [
     {
-      date: "2022-07-09",
-      name: "Samagra Website",
-      url: <a href="https://yaus.xyz/education">https://yaus.xyz/education</a>,
+      date: "2022-08-17",
+      name: "Smart India Hackathon",
+      url: <a href="https://yaus.xyz/SIH">https://yaus.xyz/SIH</a>,
       views: "82",
       install: "-",
       clicks: "335",
@@ -387,9 +387,23 @@ function Home() {
       ),
     },
     {
-      date: "2022-06-22",
-      name: "My First Link",
-      url: <a href=" https://yaus.xyz/govt"> https://yaus.xyz/govt</a>,
+      date: "2022-07-19",
+      name: "Sunbird",
+      url: <a href=" https://yaus.xyz/sunbird842"> https://yaus.xyz/sunbird842</a>,
+      views: "56",
+      install: "-",
+      clicks: "121",
+      open: "140",
+      action: (
+        <Button onClick={() => setVisible(true)} type="primary">
+          Show Statistics
+        </Button>
+      ),
+    },
+    {
+      date: "2022-07-19",
+      name: "Sunbird",
+      url: <a href=" https://yaus.xyz/sunbird371"> https://yaus.xyz/sunbird371</a>,
       views: "68",
       install: "-",
       clicks: "125",
@@ -402,12 +416,26 @@ function Home() {
     },
     {
       date: "2022-07-19",
-      name: "Competency Passbook",
-      url: <a href="https://yaus.xyz/design">https://yaus.xyz/design</a>,
-      views: "86",
+      name: "Sunbird",
+      url: <a href="https://yaus.xyz/sunbird437">https://yaus.xyz/sunbird437</a>,
+      views: "56",
       install: "-",
-      clicks: "194",
-      open: "139",
+      clicks: "124",
+      open: "149",
+      action: (
+        <Button onClick={() => setVisible(true)} type="primary">
+          Show Statistics
+        </Button>
+      ),
+    },
+    {
+      date: "2022-07-19",
+      name: "Sunbird",
+      url: <a href="https://yaus.xyz/sunbird752">https://yaus.xyz/sunbird752</a>,
+      views: "96",
+      install: "-",
+      clicks: "134",
+      open: "131",
       action: (
         <Button onClick={() => setVisible(true)} type="primary">
           Show Statistics
@@ -416,8 +444,8 @@ function Home() {
     },
     {
       date: "2022-07-03",
-      name: "Hackerank",
-      url: <a href="https://yaus.xyz/create">https://yaus.xyz/create</a>,
+      name: "Competency Passbook",
+      url: <a href="https://yaus.xyz/passbook">https://yaus.xyz/create</a>,
       views: "68",
       install: "-",
       clicks: "168",

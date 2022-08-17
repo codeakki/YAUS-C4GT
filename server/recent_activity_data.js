@@ -1,43 +1,43 @@
 module.exports=[
     {
-        "activity":" https://yaus.xyz/design",
+        "activity":" https://yaus.xyz/design_draft",
         "date_created":"2022-07-19",
-        "title":"Design",
+        "title":"Design Draft",
         "name":"Chakshu",
         "email":"chakshu@gmail.com",
     
     },
     {
-        "activity":" https://yaus.xyz/education",
+        "activity":" https://yaus.xyz/education_proposal",
         "date_created":"2022-07-09",
-        "title":"Education",
+        "title":"Education Proposal",
         "name":"Kanika",
         "email":"kanikagola26@gmail.com",
     
        
     },
     {
-        "activity":" https://yaus.xyz/create",
+        "activity":" https://yaus.xyz/Tax_bill",
         "date_created":"2022-07-03",
-        "title":"Creation",
+        "title":"Tax Expense",
         "name":"Manav",
         "email":"manav@gmail.com",
     
     },
 
 {
-    "activity":" https://yaus.xyz/govt",
+    "activity":" https://yaus.xyz/govt_docs",
     "date_created":"2022-06-22",
-    "title":"Government",
+    "title":"Goverment Docs",
     "name":"Akshay",
     "email":"akshay@gmail.com",
 
 },
 
 
-{"activity":" https://yaus.xyz/create",
+{"activity":" https://yaus.xyz/property_stats",
 "date_created":"2022-06-15",
-"title":"Creation_Link",
+"title":"Property Stats",
 "name":"Shruti",
 "email":"shruti@gmail.com",
 
